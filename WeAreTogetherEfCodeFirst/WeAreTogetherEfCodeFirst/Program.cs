@@ -16,7 +16,7 @@ namespace WeAreTogetherEfCodeFirst
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminAnimal());
+            Application.Run(new Login());
         }
     }
 }
