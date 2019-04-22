@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Beraberiz2" Class="WeAreTogetherDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-1N17G0C\SQLEXPRESS;Initial Catalog=Beraberiz2;Integrated Security=True" SettingsObjectName="LinqToSql.Properties.Settings" SettingsPropertyName="Beraberiz2ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Animal" Member="Animals">
+    <Type Name="Animal">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KindOfAnimalId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ShelterId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfRegister" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Pet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Shelter_Animal" Member="Shelter" ThisKey="ShelterId" OtherKey="Id" Type="Shelter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="KindOfAnimal_Animal" Member="KindOfAnimal" ThisKey="KindOfAnimalId" OtherKey="Id" Type="KindOfAnimal" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserPhone" Member="UserPhones">
+    <Type Name="UserPhone">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="PhoneId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_UserPhone" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="PhoneType_UserPhone" Member="PhoneType" ThisKey="PhoneId" OtherKey="Id" Type="PhoneType" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ResponsibleOfManagement" Member="ResponsibleOfManagements">
+    <Type Name="ResponsibleOfManagement">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ManagementId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_ResponsibleOfManagement" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CityId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DistrictId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IdentityNumber" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Point" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_UserPhone" Member="UserPhones" ThisKey="Id" OtherKey="UserId" Type="UserPhone" />
+      <Association Name="User_ResponsibleOfManagement" Member="ResponsibleOfManagements" ThisKey="Id" OtherKey="UserId" Type="ResponsibleOfManagement" />
+      <Association Name="User_ShelterOfUser" Member="ShelterOfUsers" ThisKey="Id" OtherKey="UserId" Type="ShelterOfUser" />
+      <Association Name="User_ManagementFood" Member="ManagementFoods" ThisKey="Id" OtherKey="ResponsibleUser" Type="ManagementFood" />
+      <Association Name="District_User" Member="District" ThisKey="DistrictId" OtherKey="Id" Type="District" IsForeignKey="true" />
+      <Association Name="District_User1" Member="District1" ThisKey="DistrictId" OtherKey="Id" Type="District" IsForeignKey="true" />
+      <Association Name="District_User2" Member="District2" ThisKey="DistrictId" OtherKey="Id" Type="District" IsForeignKey="true" />
+      <Association Name="City_User" Member="City" ThisKey="CityId" OtherKey="Id" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shelter" Member="Shelters">
+    <Type Name="Shelter">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CityId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DistrictId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Shelter_Animal" Member="Animals" ThisKey="Id" OtherKey="ShelterId" Type="Animal" />
+      <Association Name="District_Shelter" Member="District" ThisKey="DistrictId" OtherKey="Id" Type="District" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="City_Shelter" Member="City" ThisKey="CityId" OtherKey="Id" Type="City" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ShelterOfUser" Member="ShelterOfUsers">
+    <Type Name="ShelterOfUser">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShelterId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="User_ShelterOfUser" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhoneType" Member="PhoneTypes">
+    <Type Name="PhoneType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="PhoneType_UserPhone" Member="UserPhones" ThisKey="Id" OtherKey="PhoneId" Type="UserPhone" />
+      <Association Name="PhoneType_ManagementPhone" Member="ManagementPhones" ThisKey="Id" OtherKey="PhoneTypeId" Type="ManagementPhone" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Manager" Member="Managers">
+    <Type Name="Manager">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManagementType" Member="ManagementTypes">
+    <Type Name="ManagementType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="ManagementType_Management" Member="Managements" ThisKey="Id" OtherKey="ManagementTypeId" Type="Management" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManagementShelter" Member="ManagementShelters">
+    <Type Name="ManagementShelter">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManagementId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShelterId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManagementPhone" Member="ManagementPhones">
+    <Type Name="ManagementPhone">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManagementId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhoneTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Association Name="PhoneType_ManagementPhone" Member="PhoneType" ThisKey="PhoneTypeId" OtherKey="Id" Type="PhoneType" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Management_ManagementPhone" Member="Management" ThisKey="ManagementId" OtherKey="Id" Type="Management" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ManagementFood" Member="ManagementFoods">
+    <Type Name="ManagementFood">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManagementId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateOfFood" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DeliveryTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SupplyDelivery" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ResponsibleUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_ManagementFood" Member="User" ThisKey="ResponsibleUser" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Management" Member="Managements">
+    <Type Name="Management">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManagementTypeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CityId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DistrictId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Point" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Management_ManagementPhone" Member="ManagementPhones" ThisKey="Id" OtherKey="ManagementId" Type="ManagementPhone" />
+      <Association Name="ManagementType_Management" Member="ManagementType" ThisKey="ManagementTypeId" OtherKey="Id" Type="ManagementType" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="District_Management" Member="District" ThisKey="DistrictId" OtherKey="Id" Type="District" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="City_Management" Member="City" ThisKey="CityId" OtherKey="Id" Type="City" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KindOfAnimal" Member="KindOfAnimals">
+    <Type Name="KindOfAnimal">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="KindOfAnimal_Animal" Member="Animals" ThisKey="Id" OtherKey="KindOfAnimalId" Type="Animal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Districts" Member="Districts">
+    <Type Name="District">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="District" Member="District1" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="City" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="District_User" Member="Users" ThisKey="Id" OtherKey="DistrictId" Type="User" />
+      <Association Name="District_User1" Member="Users1" ThisKey="Id" OtherKey="DistrictId" Type="User" />
+      <Association Name="District_User2" Member="Users2" ThisKey="Id" OtherKey="DistrictId" Type="User" />
+      <Association Name="District_Shelter" Member="Shelters" ThisKey="Id" OtherKey="DistrictId" Type="Shelter" />
+      <Association Name="District_Management" Member="Managements" ThisKey="Id" OtherKey="DistrictId" Type="Management" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cities" Member="Cities">
+    <Type Name="City">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="City_User" Member="Users" ThisKey="Id" OtherKey="CityId" Type="User" />
+      <Association Name="City_Shelter" Member="Shelters" ThisKey="Id" OtherKey="CityId" Type="Shelter" />
+      <Association Name="City_Management" Member="Managements" ThisKey="Id" OtherKey="CityId" Type="Management" />
+    </Type>
+  </Table>
+</Database>

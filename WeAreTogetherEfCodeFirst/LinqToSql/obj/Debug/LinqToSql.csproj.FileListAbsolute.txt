@@ -1,0 +1,14 @@
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\LinqToSql\bin\Debug\LinqToSql.dll.config
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\LinqToSql\bin\Debug\LinqToSql.dll
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\LinqToSql\bin\Debug\LinqToSql.pdb
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\LinqToSql\obj\Debug\LinqToSql.csprojAssemblyReference.cache
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\LinqToSql\obj\Debug\LinqToSql.csproj.CoreCompileInputs.cache
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\LinqToSql\obj\Debug\LinqToSql.dll
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\LinqToSql\obj\Debug\LinqToSql.pdb
+C:\Users\kadir\Desktop\ForStreetAnimals\WeAreTogetherEfCodeFirst\LinqToSql\bin\Debug\LinqToSql.dll.config
+C:\Users\kadir\Desktop\ForStreetAnimals\WeAreTogetherEfCodeFirst\LinqToSql\bin\Debug\LinqToSql.dll
+C:\Users\kadir\Desktop\ForStreetAnimals\WeAreTogetherEfCodeFirst\LinqToSql\bin\Debug\LinqToSql.pdb
+C:\Users\kadir\Desktop\ForStreetAnimals\WeAreTogetherEfCodeFirst\LinqToSql\obj\Debug\LinqToSql.csprojAssemblyReference.cache
+C:\Users\kadir\Desktop\ForStreetAnimals\WeAreTogetherEfCodeFirst\LinqToSql\obj\Debug\LinqToSql.csproj.CoreCompileInputs.cache
+C:\Users\kadir\Desktop\ForStreetAnimals\WeAreTogetherEfCodeFirst\LinqToSql\obj\Debug\LinqToSql.dll
+C:\Users\kadir\Desktop\ForStreetAnimals\WeAreTogetherEfCodeFirst\LinqToSql\obj\Debug\LinqToSql.pdb

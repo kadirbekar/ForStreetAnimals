@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeAreTogetherLinqToSql", "WeAreTogetherEfCodeFirst\WeAreTogetherLinqToSql.csproj", "{FFDB4E9D-FA2A-4B63-8B27-324D17B02923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToSql", "LinqToSql\LinqToSql.csproj", "{5107C2F4-4DE3-4FB5-9CC1-F1C5332F0EB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFDB4E9D-FA2A-4B63-8B27-324D17B02923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDB4E9D-FA2A-4B63-8B27-324D17B02923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDB4E9D-FA2A-4B63-8B27-324D17B02923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDB4E9D-FA2A-4B63-8B27-324D17B02923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5107C2F4-4DE3-4FB5-9CC1-F1C5332F0EB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5107C2F4-4DE3-4FB5-9CC1-F1C5332F0EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5107C2F4-4DE3-4FB5-9CC1-F1C5332F0EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5107C2F4-4DE3-4FB5-9CC1-F1C5332F0EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {670AB71D-7CE0-4A77-9347-0886F6D9B76D}
+	EndGlobalSection
+EndGlobal

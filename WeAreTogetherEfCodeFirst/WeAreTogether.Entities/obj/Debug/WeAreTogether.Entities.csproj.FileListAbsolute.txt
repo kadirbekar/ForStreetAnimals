@@ -1,0 +1,12 @@
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\bin\Debug\WeAreTogether.Entities.dll.config
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\bin\Debug\WeAreTogether.Entities.dll
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\bin\Debug\WeAreTogether.Entities.pdb
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\bin\Debug\EntityFramework.dll
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\bin\Debug\EntityFramework.xml
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\obj\Debug\WeAreTogether.Entities.csprojAssemblyReference.cache
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\obj\Debug\WeAreTogether.Entities.csproj.CoreCompileInputs.cache
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\obj\Debug\WeAreTogether.Entities.csproj.CopyComplete
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\obj\Debug\WeAreTogether.Entities.dll
+C:\Users\kadir\Desktop\WeAreTogetherEfCodeFirst\WeAreTogether.Entities\obj\Debug\WeAreTogether.Entities.pdb

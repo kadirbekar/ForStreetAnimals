@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFDB4E9D-FA2A-4B63-8B27-324D17B02923}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WeAreTogetherEfCodeFirst</RootNamespace>
+    <AssemblyName>WeAreTogetherEfCodeFirst</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGeneral.Designer.cs">
+      <DependentUpon>AdminGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAnimal.Designer.cs">
+      <DependentUpon>AdminAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminManagement.Designer.cs">
+      <DependentUpon>AdminManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOtherThings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminOtherThings.Designer.cs">
+      <DependentUpon>AdminOtherThings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminShelter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminShelter.Designer.cs">
+      <DependentUpon>AdminShelter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUser.Designer.cs">
+      <DependentUpon>AdminUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Beraberiz2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Beraberiz2DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Beraberiz2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Beraberiz2DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Beraberiz2DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Beraberiz2DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Beraberiz2DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Beraberiz2DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mydataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mydataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="VolunteerWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VolunteerWorker.Designer.cs">
+      <DependentUpon>VolunteerWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManagementWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagementWorker.Designer.cs">
+      <DependentUpon>ManagementWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminAnimal.resx">
+      <DependentUpon>AdminAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminGeneral.resx">
+      <DependentUpon>AdminGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminManagement.resx">
+      <DependentUpon>AdminManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminOtherThings.resx">
+      <DependentUpon>AdminOtherThings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminShelter.resx">
+      <DependentUpon>AdminShelter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUser.resx">
+      <DependentUpon>AdminUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagementWorker.resx">
+      <DependentUpon>ManagementWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="VolunteerWorker.resx">
+      <DependentUpon>VolunteerWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Beraberiz2DataSet.xsc">
+      <DependentUpon>Beraberiz2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Beraberiz2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Beraberiz2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Beraberiz2DataSet.xss">
+      <DependentUpon>Beraberiz2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Beraberiz2DataSet1.xsc">
+      <DependentUpon>Beraberiz2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Beraberiz2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Beraberiz2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Beraberiz2DataSet1.xss">
+      <DependentUpon>Beraberiz2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Beraberiz2DataSet2.xsc">
+      <DependentUpon>Beraberiz2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Beraberiz2DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Beraberiz2DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Beraberiz2DataSet2.xss">
+      <DependentUpon>Beraberiz2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Beraberiz2DataSet3.xsc">
+      <DependentUpon>Beraberiz2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Beraberiz2DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Beraberiz2DataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Beraberiz2DataSet3.xss">
+      <DependentUpon>Beraberiz2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="mydataset.xsc">
+      <DependentUpon>mydataset.xsd</DependentUpon>
+    </None>
+    <None Include="mydataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>mydataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="mydataset.xss">
+      <DependentUpon>mydataset.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LinqToSql\LinqToSql.csproj">
+      <Project>{5107C2F4-4DE3-4FB5-9CC1-F1C5332F0EB0}</Project>
+      <Name>LinqToSql</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Pictures\Animal.gif" />
+    <Content Include="Pictures\Management.jpg" />
+    <Content Include="Pictures\security.gif" />
+    <Content Include="Pictures\Shelter.jpg" />
+    <Content Include="Pictures\User.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
