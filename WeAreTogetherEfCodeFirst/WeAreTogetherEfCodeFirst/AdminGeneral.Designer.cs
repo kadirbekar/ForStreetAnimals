@@ -46,19 +46,23 @@
             this.adminManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbxAddPart1 = new System.Windows.Forms.PictureBox();
+            this.btnAddPart1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAnimal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxShelter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbsPhone)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAddPart1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAnimal
             // 
             this.btnAnimal.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAnimal.Location = new System.Drawing.Point(174, 171);
+            this.btnAnimal.Location = new System.Drawing.Point(55, 171);
             this.btnAnimal.Name = "btnAnimal";
             this.btnAnimal.Size = new System.Drawing.Size(176, 46);
             this.btnAnimal.TabIndex = 0;
@@ -70,7 +74,7 @@
             // 
             this.btnShelter.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnShelter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnShelter.Location = new System.Drawing.Point(480, 171);
+            this.btnShelter.Location = new System.Drawing.Point(308, 171);
             this.btnShelter.Name = "btnShelter";
             this.btnShelter.Size = new System.Drawing.Size(176, 46);
             this.btnShelter.TabIndex = 1;
@@ -105,7 +109,7 @@
             // pbxAnimal
             // 
             this.pbxAnimal.Image = ((System.Drawing.Image)(resources.GetObject("pbxAnimal.Image")));
-            this.pbxAnimal.Location = new System.Drawing.Point(174, 44);
+            this.pbxAnimal.Location = new System.Drawing.Point(55, 44);
             this.pbxAnimal.Name = "pbxAnimal";
             this.pbxAnimal.Size = new System.Drawing.Size(176, 108);
             this.pbxAnimal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -125,7 +129,7 @@
             // pbxShelter
             // 
             this.pbxShelter.Image = ((System.Drawing.Image)(resources.GetObject("pbxShelter.Image")));
-            this.pbxShelter.Location = new System.Drawing.Point(480, 44);
+            this.pbxShelter.Location = new System.Drawing.Point(308, 44);
             this.pbxShelter.Name = "pbxShelter";
             this.pbxShelter.Size = new System.Drawing.Size(176, 108);
             this.pbxShelter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -150,7 +154,7 @@
             this.btnOtherThings.Name = "btnOtherThings";
             this.btnOtherThings.Size = new System.Drawing.Size(176, 46);
             this.btnOtherThings.TabIndex = 8;
-            this.btnOtherThings.Text = "Other Things";
+            this.btnOtherThings.Text = "Add Part 2";
             this.btnOtherThings.UseVisualStyleBackColor = false;
             this.btnOtherThings.Click += new System.EventHandler(this.btnOtherThings_Click);
             // 
@@ -183,7 +187,8 @@
             this.adminShelterToolStripMenuItem,
             this.adminManagementToolStripMenuItem,
             this.adminUserToolStripMenuItem,
-            this.adminOtherThingsToolStripMenuItem});
+            this.adminOtherThingsToolStripMenuItem,
+            this.adminAddPart1ToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -225,12 +230,43 @@
             this.adminOtherThingsToolStripMenuItem.Text = "Admin Other Things";
             this.adminOtherThingsToolStripMenuItem.Click += new System.EventHandler(this.adminOtherThingsToolStripMenuItem_Click);
             // 
+            // adminAddPart1ToolStripMenuItem
+            // 
+            this.adminAddPart1ToolStripMenuItem.Name = "adminAddPart1ToolStripMenuItem";
+            this.adminAddPart1ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
+            this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
+            // 
+            // pbxAddPart1
+            // 
+            this.pbxAddPart1.Image = ((System.Drawing.Image)(resources.GetObject("pbxAddPart1.Image")));
+            this.pbxAddPart1.Location = new System.Drawing.Point(555, 44);
+            this.pbxAddPart1.Name = "pbxAddPart1";
+            this.pbxAddPart1.Size = new System.Drawing.Size(176, 108);
+            this.pbxAddPart1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxAddPart1.TabIndex = 12;
+            this.pbxAddPart1.TabStop = false;
+            // 
+            // btnAddPart1
+            // 
+            this.btnAddPart1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnAddPart1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAddPart1.Location = new System.Drawing.Point(555, 158);
+            this.btnAddPart1.Name = "btnAddPart1";
+            this.btnAddPart1.Size = new System.Drawing.Size(176, 46);
+            this.btnAddPart1.TabIndex = 11;
+            this.btnAddPart1.Text = "Add Part 1";
+            this.btnAddPart1.UseVisualStyleBackColor = false;
+            this.btnAddPart1.Click += new System.EventHandler(this.btnAddPart1_Click);
+            // 
             // AdminGeneral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(800, 492);
+            this.Controls.Add(this.pbxAddPart1);
+            this.Controls.Add(this.btnAddPart1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.pbsPhone);
             this.Controls.Add(this.btnOtherThings);
@@ -252,6 +288,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbsPhone)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAddPart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +313,9 @@
         private System.Windows.Forms.ToolStripMenuItem adminManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pbxAddPart1;
+        private System.Windows.Forms.Button btnAddPart1;
+        private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
     }
 }
 

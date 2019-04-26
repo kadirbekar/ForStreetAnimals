@@ -228,5 +228,12 @@ namespace WeAreTogetherEfCodeFirst
                 cbxFalse.Checked = true;
             }
         }
+
+        private void adminAddPart1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminAddPartOne one = new AdminAddPartOne();
+            one.Show();
+            this.Hide();
+        }
     }
 }

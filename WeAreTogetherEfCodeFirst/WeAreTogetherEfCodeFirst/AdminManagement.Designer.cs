@@ -56,6 +56,7 @@
             this.adminManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgwManagement)).BeginInit();
             this.gbxAdminManagement.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -116,6 +117,9 @@
             // 
             // cbxManagementType
             // 
+            this.cbxManagementType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxManagementType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxManagementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxManagementType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxManagementType.FormattingEnabled = true;
             this.cbxManagementType.Location = new System.Drawing.Point(212, 311);
@@ -125,6 +129,9 @@
             // 
             // cbxCity
             // 
+            this.cbxCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxCity.FormattingEnabled = true;
             this.cbxCity.Location = new System.Drawing.Point(212, 345);
@@ -135,6 +142,9 @@
             // 
             // cbxDistrict
             // 
+            this.cbxDistrict.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxDistrict.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxDistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxDistrict.FormattingEnabled = true;
             this.cbxDistrict.Location = new System.Drawing.Point(212, 379);
@@ -286,7 +296,8 @@
             this.adminShelterToolStripMenuItem,
             this.adminManagementToolStripMenuItem,
             this.adminUserToolStripMenuItem,
-            this.adminOtherThingsToolStripMenuItem});
+            this.adminOtherThingsToolStripMenuItem,
+            this.adminAddPart1ToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -327,6 +338,13 @@
             this.adminOtherThingsToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.adminOtherThingsToolStripMenuItem.Text = "Admin Other Things";
             this.adminOtherThingsToolStripMenuItem.Click += new System.EventHandler(this.adminOtherThingsToolStripMenuItem_Click);
+            // 
+            // adminAddPart1ToolStripMenuItem
+            // 
+            this.adminAddPart1ToolStripMenuItem.Name = "adminAddPart1ToolStripMenuItem";
+            this.adminAddPart1ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
+            this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
             // 
             // AdminManagement
             // 
@@ -394,5 +412,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
     }
 }

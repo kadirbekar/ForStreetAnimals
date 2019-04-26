@@ -196,5 +196,12 @@ namespace WeAreTogetherEfCodeFirst
             aot.Show();
             this.Hide();
         }
+
+        private void adminAddPart1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AdminAddPartOne one = new AdminAddPartOne();
+            one.Show();
+            this.Hide();
+        }
     }
 }

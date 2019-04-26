@@ -56,6 +56,7 @@
             this.adminManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbxAdminAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAnimal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beraberiz2DataSet3)).BeginInit();
@@ -129,6 +130,9 @@
             // 
             // cbxKindOfAnimal
             // 
+            this.cbxKindOfAnimal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxKindOfAnimal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxKindOfAnimal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxKindOfAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxKindOfAnimal.FormattingEnabled = true;
             this.cbxKindOfAnimal.Location = new System.Drawing.Point(167, 302);
@@ -258,6 +262,9 @@
             // 
             // cbxShelterId
             // 
+            this.cbxShelterId.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxShelterId.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxShelterId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxShelterId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxShelterId.FormattingEnabled = true;
             this.cbxShelterId.Location = new System.Drawing.Point(167, 336);
@@ -288,7 +295,8 @@
             this.adminShelterToolStripMenuItem,
             this.adminManagementToolStripMenuItem,
             this.adminUserToolStripMenuItem,
-            this.adminOtherThingsToolStripMenuItem});
+            this.adminOtherThingsToolStripMenuItem,
+            this.adminAddPart1ToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -329,6 +337,13 @@
             this.adminOtherThingsToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.adminOtherThingsToolStripMenuItem.Text = "Admin Other Things";
             this.adminOtherThingsToolStripMenuItem.Click += new System.EventHandler(this.adminOtherThingsToolStripMenuItem_Click);
+            // 
+            // adminAddPart1ToolStripMenuItem
+            // 
+            this.adminAddPart1ToolStripMenuItem.Name = "adminAddPart1ToolStripMenuItem";
+            this.adminAddPart1ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
+            this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
             // 
             // AdminAnimal
             // 
@@ -396,5 +411,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
     }
 }
