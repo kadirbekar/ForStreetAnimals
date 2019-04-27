@@ -52,7 +52,7 @@ namespace WeAreTogetherEfCodeFirst
                 }
 
             }
-            if (cbxUserType.SelectedIndex == 1)
+            else if (cbxUserType.SelectedIndex == 1)
             {
                 var query = from p in _wrt.Managements
                             where
@@ -62,6 +62,8 @@ namespace WeAreTogetherEfCodeFirst
                 if (query.Any())
                 {
                     ManagementWorker Mw = new ManagementWorker();
+                    Mw.Username = txtSurname.Text;
+                    Mw.Password = txtPassword.Text;
                     Mw.Show();
                     this.Hide();
                 }
@@ -72,7 +74,7 @@ namespace WeAreTogetherEfCodeFirst
                 }
                 
             }
-            if (cbxUserType.SelectedIndex == 2)
+            else if (cbxUserType.SelectedIndex == 2)
             {
                 var query = from p in _wrt.Managers
                             where

@@ -66,16 +66,16 @@ namespace WeAreTogetherEfCodeFirst
             dt.Columns.Add("City");
             dt.Columns.Add("District");
             dt.Columns.Add("Birthday");
+            dt.Columns.Add("Point");
             dt.Columns.Add("Address");
             
             foreach (var item in s1)
             {
                 var s2 = from x in _wrt.Cities where x.Id == item.CityId select x;
                 string Cityname = s2.ToList()[0].Name.ToString();
-                //var s3 = from x in _wrt.Districts where x.City == s2.ToList()[0].Id select x;
                 var s3 = from x in _wrt.Districts where x.Id == item.DistrictId select x;
                 string DistrictName = s3.ToList()[0].District1.ToString();
-                dt.Rows.Add(item.Id, item.Name, item.Surname,item.IdentityNumber,item.Gender, item.Username, item.Password, Cityname, DistrictName, item.Birthday,item.Address);
+                dt.Rows.Add(item.Id, item.Name, item.Surname,item.IdentityNumber,item.Gender, item.Username, item.Password, Cityname, DistrictName, item.Birthday,item.Point,item.Address);
             }
             dgwAdminUser.DataSource = dt;
         }
@@ -136,30 +136,38 @@ namespace WeAreTogetherEfCodeFirst
         }
         private void dgwAdminUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var getCityAndDistrictId = from u in _wrt.Users where u.Id == Convert.ToInt32(dgwAdminUser.CurrentRow.Cells[0].Value) select u;
-            cbxCity.Text = "";
-            cbxDistrict.Text = "";
-            txtName.Text = dgwAdminUser.CurrentRow.Cells[1].Value.ToString();
-            txtSurname.Text = dgwAdminUser.CurrentRow.Cells[2].Value.ToString();
-            txtIdentidyNumber.Text = dgwAdminUser.CurrentRow.Cells[3].Value.ToString();
-            if (Convert.ToBoolean(dgwAdminUser.CurrentRow.Cells[4].Value)==true)
+            try
             {
-                chcMale.Checked = true;
-                chcFemale.Checked = false;
+                var getCityAndDistrictId = from u in _wrt.Users where u.Id == Convert.ToInt32(dgwAdminUser.CurrentRow.Cells[0].Value) select u;
+                cbxCity.Text = "";
+                cbxDistrict.Text = "";
+                txtName.Text = dgwAdminUser.CurrentRow.Cells[1].Value.ToString();
+                txtSurname.Text = dgwAdminUser.CurrentRow.Cells[2].Value.ToString();
+                txtIdentidyNumber.Text = dgwAdminUser.CurrentRow.Cells[3].Value.ToString();
+                if (Convert.ToBoolean(dgwAdminUser.CurrentRow.Cells[4].Value) == true)
+                {
+                    chcMale.Checked = true;
+                    chcFemale.Checked = false;
+                }
+                else if (Convert.ToBoolean(dgwAdminUser.CurrentRow.Cells[4].Value) == false)
+                {
+                    chcFemale.Checked = true;
+                    chcMale.Checked = false;
+                }
+                txtUsername.Text = dgwAdminUser.CurrentRow.Cells[5].Value.ToString();
+                txtPassword.Text = dgwAdminUser.CurrentRow.Cells[6].Value.ToString();
+                cbxCity.SelectedText = Convert.ToString(dgwAdminUser.CurrentRow.Cells[7].Value);
+                cbxCity.SelectedValue = Convert.ToInt32(getCityAndDistrictId.ToList().FirstOrDefault().CityId.ToString());
+                cbxDistrict.SelectedText = Convert.ToString(dgwAdminUser.CurrentRow.Cells[8].Value);
+                cbxDistrict.SelectedValue = Convert.ToInt32(getCityAndDistrictId.ToList().FirstOrDefault().DistrictId.ToString());
+                dtpBirthday.Value = Convert.ToDateTime(dgwAdminUser.CurrentRow.Cells[9].Value);
+                txtAddress.Text = dgwAdminUser.CurrentRow.Cells[11].Value.ToString();
             }
-            else if (Convert.ToBoolean(dgwAdminUser.CurrentRow.Cells[4].Value) == false)
+            catch
             {
-                chcFemale.Checked = true;
-                chcMale.Checked = false;
+                MessageBox.Show("We got a problem on the system.Try it another time.");
             }
-            txtUsername.Text = dgwAdminUser.CurrentRow.Cells[5].Value.ToString();
-            txtPassword.Text = dgwAdminUser.CurrentRow.Cells[6].Value.ToString();
-            cbxCity.SelectedText = Convert.ToString(dgwAdminUser.CurrentRow.Cells[7].Value);
-            cbxCity.SelectedValue = Convert.ToInt32(getCityAndDistrictId.ToList().FirstOrDefault().CityId.ToString());
-            cbxDistrict.SelectedText = Convert.ToString(dgwAdminUser.CurrentRow.Cells[8].Value);
-            cbxDistrict.SelectedValue = Convert.ToInt32(getCityAndDistrictId.ToList().FirstOrDefault().DistrictId.ToString());
-            dtpBirthday.Value = Convert.ToDateTime(dgwAdminUser.CurrentRow.Cells[9].Value);
-            txtAddress.Text = dgwAdminUser.CurrentRow.Cells[10].Value.ToString();
+            
         }
 
         private void btnDeleteUser_Click(object sender, EventArgs e)

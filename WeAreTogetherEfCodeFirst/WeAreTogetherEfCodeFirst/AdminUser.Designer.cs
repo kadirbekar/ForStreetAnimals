@@ -336,7 +336,7 @@
             this.dgwAdminUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwAdminUser.Location = new System.Drawing.Point(0, 28);
             this.dgwAdminUser.Name = "dgwAdminUser";
-            this.dgwAdminUser.Size = new System.Drawing.Size(1030, 220);
+            this.dgwAdminUser.Size = new System.Drawing.Size(1180, 220);
             this.dgwAdminUser.TabIndex = 48;
             this.dgwAdminUser.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwAdminUser_CellClick);
             // 
@@ -356,7 +356,7 @@
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1034, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1184, 25);
             this.toolStrip1.TabIndex = 72;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -423,7 +423,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1034, 646);
+            this.ClientSize = new System.Drawing.Size(1184, 646);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);

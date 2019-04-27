@@ -448,68 +448,76 @@ namespace WeAreTogetherEfCodeFirst
         //I got a problem here
         private void dgwAddPart_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (cbxList2.SelectedIndex==0)
+            try
             {
-                var id = from up in _wrt.UserPhones where up.UserId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select up;
-                cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
-                tbxNameIki.Text= dgwAddPart.CurrentRow.Cells[2].Value.ToString();
-                cbxPhoneTypeId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[3].Value);
-                cbxPhoneTypeId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().PhoneId.ToString());
-            }
-            else if (cbxList2.SelectedIndex == 1)
-            {
-                var id = from mp in _wrt.ManagementPhones where mp.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select mp;
-                cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
-                cbxPhoneTypeId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
-                cbxPhoneTypeId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().PhoneTypeId.ToString());
-                tbxNameIki.Text = dgwAddPart.CurrentRow.Cells[3].Value.ToString();
-            }
-            else if (cbxList2.SelectedIndex == 2)
-            {
-                var id = from ms in _wrt.ManagementShelters where ms.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select ms;
-                cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
-                cbxShelterId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
-                cbxShelterId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ShelterId.ToString());
-                if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value)==true)
+                if (cbxList2.SelectedIndex == 0)
                 {
-                    cbxTrue.Checked = true;
-                    cbxFalse.Checked = false;
+                    var id = from up in _wrt.UserPhones where up.UserId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select up;
+                    cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+                    cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
+                    tbxNameIki.Text = dgwAddPart.CurrentRow.Cells[2].Value.ToString();
+                    cbxPhoneTypeId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[3].Value);
+                    cbxPhoneTypeId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().PhoneId.ToString());
                 }
-                else if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == false)
+                else if (cbxList2.SelectedIndex == 1)
                 {
-                    cbxFalse.Checked = true;
-                    cbxTrue.Checked = false;
+                    var id = from mp in _wrt.ManagementPhones where mp.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select mp;
+                    cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+                    cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
+                    cbxPhoneTypeId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
+                    cbxPhoneTypeId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().PhoneTypeId.ToString());
+                    tbxNameIki.Text = dgwAddPart.CurrentRow.Cells[3].Value.ToString();
+                }
+                else if (cbxList2.SelectedIndex == 2)
+                {
+                    var id = from ms in _wrt.ManagementShelters where ms.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select ms;
+                    cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+                    cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
+                    cbxShelterId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
+                    cbxShelterId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ShelterId.ToString());
+                    if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == true)
+                    {
+                        cbxTrue.Checked = true;
+                        cbxFalse.Checked = false;
+                    }
+                    else if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == false)
+                    {
+                        cbxFalse.Checked = true;
+                        cbxTrue.Checked = false;
+                    }
+                }
+                else if (cbxList2.SelectedIndex == 3)
+                {
+                    var id = from rom in _wrt.ResponsibleOfManagements where rom.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select rom;
+                    cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+                    cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
+                    cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
+                    cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
+                }
+                else if (cbxList2.SelectedIndex == 4)
+                {
+                    var id = from sou in _wrt.ShelterOfUsers where sou.UserId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select sou;
+                    cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+                    cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
+                    cbxShelterId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
+                    cbxShelterId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ShelterId.ToString());
+                    if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == true)
+                    {
+                        cbxTrue.Checked = true;
+                        cbxFalse.Checked = false;
+                    }
+                    else if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == false)
+                    {
+                        cbxFalse.Checked = true;
+                        cbxTrue.Checked = false;
+                    }
                 }
             }
-            else if (cbxList2.SelectedIndex == 3)
+            catch
             {
-                var id = from rom in _wrt.ResponsibleOfManagements where rom.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select rom;
-                cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
-                cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
-                cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
+                MessageBox.Show("We got a problem on the system.Try it another time.");
             }
-            else if (cbxList2.SelectedIndex == 4)
-            {
-                var id = from sou in _wrt.ShelterOfUsers where sou.UserId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select sou;
-                cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
-                cbxShelterId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
-                cbxShelterId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ShelterId.ToString());
-                if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == true)
-                {
-                    cbxTrue.Checked = true;
-                    cbxFalse.Checked = false;
-                }
-                else if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == false)
-                {
-                    cbxFalse.Checked = true;
-                    cbxTrue.Checked = false;
-                }
-            }
+            
         }
     }
 }
