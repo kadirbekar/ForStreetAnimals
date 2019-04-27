@@ -18,9 +18,9 @@ namespace WeAreTogetherEfCodeFirst
             InitializeComponent();
         }
         WeAreTogetherDataContext _wrt = new WeAreTogetherDataContext();
+        ManagementFood _managementFood = new ManagementFood();
         public string Username { get; set; }
         public string Password { get; set; }
-        public string ManagementId { get; set; }
         private void cbxPickAList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxPickAList.SelectedIndex == 0)
@@ -31,19 +31,16 @@ namespace WeAreTogetherEfCodeFirst
                 var getManagementShelter = from ms in _wrt.ManagementShelters select ms;
                 var getUser = from u in _wrt.Users select u;
                 var getShelter = from sou in _wrt.Shelters select sou;
-                var seeEveryone = from m in getManagement
-                                  join ms in getManagementShelter on
-                                  m.Id equals ms.ManagementId
-                                  join s in getShelter on ms.ShelterId equals s.Id
-                                  join sou in getShelterOfUser on s.Id equals sou.ShelterId
-                                  join u in getUser on sou.UserId equals u.Id
-                                  where (m.CityId == 11)
+                var getManagementFood = from mf in _wrt.ManagementFoods select mf;
+                var seeEveryone = from mf in getManagementFood
+                                  join m in getManagement on
+                                  mf.ManagementId equals m.Id
+                                  join u in getUser on mf.ResponsibleUser equals u.Id
+                                  where (u.CityId == 11)
                                   select new
                                   {
                                       managmntName = m.Name,
                                       managmntId = m.Id,
-                                      managmntCity = m.CityId,
-                                      managmntShlterId = ms.ShelterId,
                                       userName = u.Name,
                                       userId = u.Id,
                                   };
@@ -51,22 +48,20 @@ namespace WeAreTogetherEfCodeFirst
                 DataTable dt = new DataTable();
                 dt.Columns.Add("managmntName");
                 dt.Columns.Add("managmntId");
-                dt.Columns.Add("managmntCity");
-                dt.Columns.Add("managmntShlterId");
                 dt.Columns.Add("userName");
                 dt.Columns.Add("userId");
 
                 foreach (var q in seeEveryone)
                 {
-                    dt.Rows.Add(q.managmntName, q.managmntId,q.managmntCity,q.managmntShlterId, q.userName,q.userId);
+                    dt.Rows.Add(q.managmntName, q.managmntId, q.userName, q.userId);
                 }
                 dgwManagementWorker.DataSource = dt;
             }
-            else if (cbxPickAList.SelectedIndex==1)
+            else if (cbxPickAList.SelectedIndex == 1)
             {
                 GetManagementFoodsTable();
             }
-            else if (cbxPickAList.SelectedIndex==2)
+            else if (cbxPickAList.SelectedIndex == 2)
             {
                 GetAnimalAndShelters();
             }
@@ -122,7 +117,8 @@ namespace WeAreTogetherEfCodeFirst
 
         private void ManagementWorker_Load(object sender, EventArgs e)
         {
-            lblUsername.Text = Username+" signed";
+            lblPassword.Visible = false;
+            lblUsername.Text = Username + " signed";
             lblPassword.Text = Password;
             GetManagementId();
             GetManagementFoodsTable();
@@ -146,7 +142,7 @@ namespace WeAreTogetherEfCodeFirst
                     {
                         ManagementId = Convert.ToInt32(tbxManagementId.Text),
                         DateOfFood = dtpDateOfFood.Value,
-                        SupplyDelivery=false
+                        SupplyDelivery = false
                     };
                     context.ManagementFoods.InsertOnSubmit(managementFood);
                     context.SubmitChanges();
@@ -159,12 +155,11 @@ namespace WeAreTogetherEfCodeFirst
             {
                 MessageBox.Show("We got a problem on the system.Try it another time.");
             }
-            
+
         }
 
         private void dgwManagementWorker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //tbxManagementId.Text = Convert.ToString(dgwManagementWorker.CurrentRow.Cells[1].Value);
             dtpDateOfFood.Value = Convert.ToDateTime(dgwManagementWorker.CurrentRow.Cells[2].Value);
         }
 
@@ -172,23 +167,42 @@ namespace WeAreTogetherEfCodeFirst
         {
             try
             {
-                using (var context = new WeAreTogetherDataContext())
+                if (Convert.ToInt32(dgwManagementWorker.CurrentRow.Cells[1].Value) == Convert.ToInt32(tbxManagementId.Text))
                 {
-                    //if (Convert.ToInt32(dgwManagementWorker.CurrentRow.Cells[1].Value)==Convert.ToInt32(tbxManagementId.Text))
-                    //{
-                        var managementFood = new ManagementFood
-                        {
-                            DateOfFood = dtpDateOfFood.Value
-                        };
-                        context.SubmitChanges();
-                        GetManagementFoodsTable();
-                        dtpDateOfFood.Text = "";
-                        MessageBox.Show("Entity updated successfully");
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("You cannot update the register which isn't yours");
-                    //}
+                    int id = Convert.ToInt32(dgwManagementWorker.CurrentRow.Cells[0].Value);
+                    _managementFood = _wrt.ManagementFoods.FirstOrDefault(mf => mf.Id == id);
+                    _managementFood.DateOfFood = dtpDateOfFood.Value;
+                    _wrt.SubmitChanges();
+                    GetManagementFoodsTable();
+                    MessageBox.Show("Entity updated successfully");
+                }
+                else
+                {
+                    MessageBox.Show("You cannot update the register which isn't yours");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("We got a problem on the system.Try it another time.");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Convert.ToInt32(dgwManagementWorker.CurrentRow.Cells[1].Value) == Convert.ToInt32(tbxManagementId.Text))
+                {
+                    int id = Convert.ToInt32(dgwManagementWorker.CurrentRow.Cells[0].Value);
+                    _managementFood = _wrt.ManagementFoods.FirstOrDefault(mif => mif.Id == id);
+                    _wrt.ManagementFoods.DeleteOnSubmit(_managementFood);
+                    _wrt.SubmitChanges();
+                    GetManagementFoodsTable();
+                    MessageBox.Show("Entity deleted successfully");
+                }
+                else
+                {
+                    MessageBox.Show("You cannot delete the register which isn't yours");
                 }
             }
             catch
@@ -198,3 +212,4 @@ namespace WeAreTogetherEfCodeFirst
         }
     }
 }
+

@@ -42,6 +42,8 @@ namespace WeAreTogetherEfCodeFirst
                 if (query.Any())
                 {
                     VolunteerWorker Vw = new VolunteerWorker();
+                    Vw.Username = txtSurname.Text;
+                    Vw.Password = txtPassword.Text;
                     Vw.Show();
                     this.Hide();
                 }
