@@ -56,6 +56,7 @@ namespace WeAreTogetherEfCodeFirst
             }
         }
 
+        //We've created o new method to get Management's id numbers
         private void GetManagementId()
         {
             var id = from m in _wrt.Managements select m;
@@ -84,7 +85,7 @@ namespace WeAreTogetherEfCodeFirst
             cbxPhoneTypeId.ValueMember = "Id";
         }
 
-
+        //Getting userphone table with that method
         private void GetUserPhoneTable()
         {
             DataTable d1 = new DataTable();

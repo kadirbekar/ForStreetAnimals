@@ -17,7 +17,7 @@ namespace WeAreTogetherEfCodeFirst
         {
             InitializeComponent();
         }
-        //User _user = new User();
+        //We've created a instance to have DBContext connection
         WeAreTogetherDataContext _wrt = new WeAreTogetherDataContext();
         private void AdminUser_Load(object sender, EventArgs e)
         {
@@ -100,11 +100,13 @@ namespace WeAreTogetherEfCodeFirst
             }
         }
 
+        //Adding a new user
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             User user = new User();
             try
             {
+
                 user.CityId = Convert.ToInt32(cbxCity.SelectedValue);
                 user.DistrictId = Convert.ToInt32(cbxDistrict.SelectedValue);
                 user.Name = txtName.Text;
@@ -120,6 +122,7 @@ namespace WeAreTogetherEfCodeFirst
                 }
                 user.Birthday = dtpBirthday.Value;
                 user.Address = txtAddress.Text;
+                user.Point = 0;
                 user.Username = txtUsername.Text;
                 user.Password = txtPassword.Text;
                 _wrt.Users.InsertOnSubmit(user);
@@ -134,6 +137,8 @@ namespace WeAreTogetherEfCodeFirst
             }
 
         }
+
+        //Getting information about users to the tools 
         private void dgwAdminUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -170,6 +175,7 @@ namespace WeAreTogetherEfCodeFirst
             
         }
 
+        //Deleting a user with their id number
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             User user = new User();
@@ -189,6 +195,7 @@ namespace WeAreTogetherEfCodeFirst
             }
         }
 
+        //Updating a user with their id number
         private void btnUpdateUser_Click(object sender, EventArgs e)
         {
                 User user = new User();
@@ -283,6 +290,78 @@ namespace WeAreTogetherEfCodeFirst
             AdminAddPartOne one = new AdminAddPartOne();
             one.Show();
             this.Hide();
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtName.Text.Length<=0)
+            {
+                errorProvider.SetError(txtName,"This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void txtSurname_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtSurname.Text.Length <= 0)
+            {
+                errorProvider.SetError(txtSurname, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void txtIdentidyNumber_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtIdentidyNumber.Text.Length<11 || txtIdentidyNumber.Text.Length > 11)
+            {
+                errorProvider.SetError(txtIdentidyNumber, "This field must have 11 character");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void txtAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtAddress.Text.Length <= 0)
+            {
+                errorProvider.SetError(txtAddress, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void txtUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtUsername.Text.Length <= 0)
+            {
+                errorProvider.SetError(txtUsername, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtPassword.Text.Length <= 0)
+            {
+                errorProvider.SetError(txtPassword, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
         }
     }
 }

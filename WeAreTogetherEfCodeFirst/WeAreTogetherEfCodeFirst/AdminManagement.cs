@@ -17,6 +17,7 @@ namespace WeAreTogetherEfCodeFirst
         {
             InitializeComponent();
         }
+        //We've created a instance to have DBContext connection
         WeAreTogetherDataContext _wrt = new WeAreTogetherDataContext();
         private void GetCities()
         {
@@ -27,6 +28,7 @@ namespace WeAreTogetherEfCodeFirst
             GetDistricts();
             GetManagementTypes();
         }
+
         private void GetDistricts()
         {
             if (cbxCity.SelectedIndex != -1)
@@ -40,6 +42,7 @@ namespace WeAreTogetherEfCodeFirst
                 cbxDistrict.DataSource = CityDistrics;
             }
         }
+
         private void GetManagements()
         {
             //We get our users from database
@@ -66,6 +69,8 @@ namespace WeAreTogetherEfCodeFirst
             }
             dgwManagement.DataSource = dt;
         }
+
+        //We've created that method to clear our tools after CRUD operations
         void Clear()
         {
             cbxCity.Text = "";
@@ -79,6 +84,7 @@ namespace WeAreTogetherEfCodeFirst
             GetDistricts();
             GetManagements();
         }
+
         private void AdminManagement_Load(object sender, EventArgs e)
         {
             GetManagementTypes();
@@ -87,6 +93,7 @@ namespace WeAreTogetherEfCodeFirst
             GetManagements();
         }
 
+        //Getting management types with a method
         private void GetManagementTypes()
         {
             var query = from m in _wrt.ManagementTypes select m;
@@ -118,6 +125,7 @@ namespace WeAreTogetherEfCodeFirst
             tbxPassword.Text= Convert.ToString(dgwManagement.CurrentRow.Cells[8].Value);
         }
 
+        //Adding a new management
         private void btnAddManagement_Click(object sender, EventArgs e)
         {
             Management management = new Management();
@@ -127,6 +135,7 @@ namespace WeAreTogetherEfCodeFirst
                 management.CityId = Convert.ToInt32(cbxCity.SelectedValue);
                 management.DistrictId = Convert.ToInt32(cbxDistrict.SelectedValue);
                 management.Name = tbxName.Text;
+                management.Point = 0;
                 management.Address = tbxAddress.Text;
                 management.Username = tbxUsername.Text;
                 management.Password = tbxPassword.Text;
@@ -142,6 +151,7 @@ namespace WeAreTogetherEfCodeFirst
             }
         }
 
+        //Deleting a management with their id number
         private void btnDeleteManagement_Click(object sender, EventArgs e)
         {
             Management management = new Management();
@@ -161,6 +171,7 @@ namespace WeAreTogetherEfCodeFirst
             }
         }
 
+        //Updating a management with their id number
         private void btnUpdateManagement_Click(object sender, EventArgs e)
         {
             Management management = new Management();
@@ -226,6 +237,54 @@ namespace WeAreTogetherEfCodeFirst
             AdminAddPartOne one = new AdminAddPartOne();
             one.Show();
             this.Hide();
+        }
+
+        private void tbxName_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxName.Text.Length <= 0)
+            {
+                errorProvider.SetError(tbxName, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbxAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxAddress.Text.Length <= 0)
+            {
+                errorProvider.SetError(tbxAddress, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbxUsername_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxUsername.Text.Length <= 0)
+            {
+                errorProvider.SetError(tbxUsername, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbxPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxPassword.Text.Length <= 0)
+            {
+                errorProvider.SetError(tbxPassword, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
         }
     }
 }

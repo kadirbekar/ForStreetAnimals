@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminAnimal));
             this.gbxAdminAnimal = new System.Windows.Forms.GroupBox();
             this.btnDeleteAnimal = new System.Windows.Forms.Button();
@@ -57,10 +58,12 @@
             this.adminUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxAdminAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAnimal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beraberiz2DataSet3)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxAdminAnimal
@@ -155,6 +158,7 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(198, 26);
             this.tbxName.TabIndex = 3;
+            this.tbxName.Validating += new System.ComponentModel.CancelEventHandler(this.tbxName_Validating);
             // 
             // tbxNote
             // 
@@ -164,6 +168,7 @@
             this.tbxNote.Name = "tbxNote";
             this.tbxNote.Size = new System.Drawing.Size(283, 84);
             this.tbxNote.TabIndex = 5;
+            this.tbxNote.Validating += new System.ComponentModel.CancelEventHandler(this.tbxNote_Validating);
             // 
             // cbxTrue
             // 
@@ -345,6 +350,11 @@
             this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
             this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkRate = 1000;
+            this.errorProvider.ContainerControl = this;
+            // 
             // AdminAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +387,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.beraberiz2DataSet3)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,5 +423,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

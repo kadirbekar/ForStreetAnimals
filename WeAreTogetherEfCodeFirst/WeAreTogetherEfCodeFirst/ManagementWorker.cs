@@ -132,6 +132,7 @@ namespace WeAreTogetherEfCodeFirst
             tbxManagementId.Text = id.ToString();
         }
 
+        //We'll create a register on the griedview
         private void btnTakeMission_Click(object sender, EventArgs e)
         {
             try
@@ -163,6 +164,7 @@ namespace WeAreTogetherEfCodeFirst
             dtpDateOfFood.Value = Convert.ToDateTime(dgwManagementWorker.CurrentRow.Cells[2].Value);
         }
 
+        //We can update our register with that button click
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try

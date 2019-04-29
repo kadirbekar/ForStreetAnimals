@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminUser));
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -64,9 +65,11 @@
             this.adminUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxAdminUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAdminUser)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -177,6 +180,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(282, 26);
             this.txtPassword.TabIndex = 11;
+            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);
             // 
             // txtUsername
             // 
@@ -185,6 +189,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(282, 26);
             this.txtUsername.TabIndex = 10;
+            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsername_Validating);
             // 
             // txtAddress
             // 
@@ -193,6 +198,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(283, 26);
             this.txtAddress.TabIndex = 9;
+            this.txtAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             // 
             // chcFemale
             // 
@@ -225,6 +231,7 @@
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(283, 26);
             this.txtSurname.TabIndex = 4;
+            this.txtSurname.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurname_Validating);
             // 
             // txtIdentidyNumber
             // 
@@ -233,6 +240,7 @@
             this.txtIdentidyNumber.Name = "txtIdentidyNumber";
             this.txtIdentidyNumber.Size = new System.Drawing.Size(283, 26);
             this.txtIdentidyNumber.TabIndex = 5;
+            this.txtIdentidyNumber.Validating += new System.ComponentModel.CancelEventHandler(this.txtIdentidyNumber_Validating);
             // 
             // txtName
             // 
@@ -241,6 +249,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(283, 26);
             this.txtName.TabIndex = 3;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // cbxDistrict
             // 
@@ -418,6 +427,11 @@
             this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
             this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkRate = 1000;
+            this.errorProvider.ContainerControl = this;
+            // 
             // AdminUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,6 +471,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwAdminUser)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,5 +513,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

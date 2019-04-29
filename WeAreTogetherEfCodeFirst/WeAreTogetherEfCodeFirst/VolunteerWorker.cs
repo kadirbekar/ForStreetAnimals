@@ -17,6 +17,7 @@ namespace WeAreTogetherEfCodeFirst
         {
             InitializeComponent();
         }
+        //With these properties we get our username and password from the login page
         public string Username { get; set; }
         public string Password { get; set; }
         WeAreTogetherDataContext _wrt = new WeAreTogetherDataContext();

@@ -29,6 +29,7 @@ namespace WeAreTogetherEfCodeFirst
         {
             InitializeComponent();
         }
+        //We've created a instance to have DBContext connection
         WeAreTogetherDataContext _wrt = new WeAreTogetherDataContext();
         private void AdminAnimal_Load(object sender, EventArgs e)
         {
@@ -37,6 +38,7 @@ namespace WeAreTogetherEfCodeFirst
             GetShelterId();
         }
 
+        //With that metod we get our kind of animal table
         private void GetKindOfAnimals()
         {
             var getKindOfAnimals = from koa in _wrt.KindOfAnimals select koa;
@@ -70,6 +72,7 @@ namespace WeAreTogetherEfCodeFirst
             dgwAnimal.DataSource = dt;
         }
 
+        //Adding a new animal
         private void btnAddAnimal_Click(object sender, EventArgs e)
         {
             try
@@ -234,6 +237,30 @@ namespace WeAreTogetherEfCodeFirst
             AdminAddPartOne one = new AdminAddPartOne();
             one.Show();
             this.Hide();
+        }
+
+        private void tbxName_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxName.Text.Length<=0)
+            {
+                errorProvider.SetError(tbxName, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbxNote_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxNote.Text.Length <= 0)
+            {
+                errorProvider.SetError(tbxNote, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
         }
     }
 }

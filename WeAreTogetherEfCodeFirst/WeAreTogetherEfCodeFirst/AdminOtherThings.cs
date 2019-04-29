@@ -22,6 +22,8 @@ namespace WeAreTogetherEfCodeFirst
         KindOfAnimal _kindOfAnimal = new KindOfAnimal();
 
         WeAreTogetherDataContext _wrt = new WeAreTogetherDataContext();
+
+        //With that DataTable we list our 3 tables on the griedview
         DataTable _d1 = new DataTable();
 
         private void btnAddPart1_Click(object sender, EventArgs e)
@@ -86,6 +88,7 @@ namespace WeAreTogetherEfCodeFirst
             dgwOtherThings.DataSource = _d1;
         }
 
+        //We get our management types table with that method
         private void GetManagementTypesTable()
         {
             var y = from m in _wrt.ManagementTypes select m;
@@ -258,6 +261,18 @@ namespace WeAreTogetherEfCodeFirst
             AdminAddPartOne one = new AdminAddPartOne();
             one.Show();
             this.Hide();
+        }
+
+        private void tbxName_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxName.Text.Length <= 0)
+            {
+                errorProvider.SetError(tbxName, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
         }
     }
 }

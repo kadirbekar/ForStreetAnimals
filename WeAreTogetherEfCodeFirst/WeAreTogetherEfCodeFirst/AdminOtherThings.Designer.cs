@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminOtherThings));
             this.gbxAoT1 = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -48,10 +49,12 @@
             this.adminUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxAoT1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwOtherThings)).BeginInit();
             this.gbxAddSomething.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxAoT1
@@ -153,6 +156,7 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(318, 26);
             this.tbxName.TabIndex = 25;
+            this.tbxName.Validating += new System.ComponentModel.CancelEventHandler(this.tbxName_Validating);
             // 
             // gbxAddSomething
             // 
@@ -257,6 +261,11 @@
             this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
             this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkRate = 1000;
+            this.errorProvider.ContainerControl = this;
+            // 
             // AdminOtherThings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +287,7 @@
             this.gbxAddSomething.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +314,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

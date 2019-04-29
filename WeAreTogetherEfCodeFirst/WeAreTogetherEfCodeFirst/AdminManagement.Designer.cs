@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminManagement));
             this.btnAddManagement = new System.Windows.Forms.Button();
             this.lblWarning = new System.Windows.Forms.Label();
@@ -57,9 +58,11 @@
             this.adminUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgwManagement)).BeginInit();
             this.gbxAdminManagement.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddManagement
@@ -94,6 +97,7 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(252, 26);
             this.tbxName.TabIndex = 4;
+            this.tbxName.Validating += new System.ComponentModel.CancelEventHandler(this.tbxName_Validating);
             // 
             // dgwManagement
             // 
@@ -160,6 +164,7 @@
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(252, 58);
             this.tbxAddress.TabIndex = 5;
+            this.tbxAddress.Validating += new System.ComponentModel.CancelEventHandler(this.tbxAddress_Validating);
             // 
             // tbxUsername
             // 
@@ -168,6 +173,7 @@
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(252, 26);
             this.tbxUsername.TabIndex = 6;
+            this.tbxUsername.Validating += new System.ComponentModel.CancelEventHandler(this.tbxUsername_Validating);
             // 
             // tbxPassword
             // 
@@ -176,6 +182,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(252, 26);
             this.tbxPassword.TabIndex = 7;
+            this.tbxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbxPassword_Validating);
             // 
             // lblManagementType
             // 
@@ -346,6 +353,11 @@
             this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
             this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkRate = 1000;
+            this.errorProvider.ContainerControl = this;
+            // 
             // AdminManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,6 +390,7 @@
             this.gbxAdminManagement.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,5 +426,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

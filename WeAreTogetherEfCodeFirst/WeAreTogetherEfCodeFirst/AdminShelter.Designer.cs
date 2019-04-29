@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminShelter));
             this.dgwAdminShelter = new System.Windows.Forms.DataGridView();
             this.cbxCity = new System.Windows.Forms.ComboBox();
@@ -53,9 +54,11 @@
             this.adminUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAdminShelter)).BeginInit();
             this.gbxAdminManagement.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwAdminShelter
@@ -100,6 +103,7 @@
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(295, 26);
             this.tbxName.TabIndex = 5;
+            this.tbxName.Validating += new System.ComponentModel.CancelEventHandler(this.tbxName_Validating);
             // 
             // tbxAddress
             // 
@@ -109,6 +113,7 @@
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(295, 78);
             this.tbxAddress.TabIndex = 6;
+            this.tbxAddress.Validating += new System.ComponentModel.CancelEventHandler(this.tbxAddress_Validating);
             // 
             // tbxPhone
             // 
@@ -117,6 +122,7 @@
             this.tbxPhone.Name = "tbxPhone";
             this.tbxPhone.Size = new System.Drawing.Size(295, 26);
             this.tbxPhone.TabIndex = 7;
+            this.tbxPhone.Validating += new System.ComponentModel.CancelEventHandler(this.tbxPhone_Validating);
             // 
             // gbxAdminManagement
             // 
@@ -302,6 +308,11 @@
             this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
             this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkRate = 1000;
+            this.errorProvider.ContainerControl = this;
+            // 
             // AdminShelter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +341,7 @@
             this.gbxAdminManagement.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,5 +373,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

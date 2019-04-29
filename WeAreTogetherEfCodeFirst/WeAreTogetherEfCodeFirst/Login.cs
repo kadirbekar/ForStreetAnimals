@@ -97,5 +97,34 @@ namespace WeAreTogetherEfCodeFirst
                 
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtSurname_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtSurname.Text.Length<=0)
+            {
+                errorProvider.SetError(txtSurname,"This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtPassword.Text.Length<=0)
+            {
+                errorProvider.SetError(txtPassword,"This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
     }
 }

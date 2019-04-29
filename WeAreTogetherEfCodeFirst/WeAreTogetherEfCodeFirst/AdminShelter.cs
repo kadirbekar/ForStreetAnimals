@@ -17,7 +17,10 @@ namespace WeAreTogetherEfCodeFirst
         {
             InitializeComponent();
         }
+        //We've created a instance to have DBContext connection
         WeAreTogetherDataContext _wrt = new WeAreTogetherDataContext();
+
+        //To clear our tools on the form
         public void Clear()
         {
             tbxName.Text = "";
@@ -26,6 +29,7 @@ namespace WeAreTogetherEfCodeFirst
             GetCities();
             GetDistricts();
         }
+
         private void AdminShelter_Load(object sender, EventArgs e)
         {
             GetShelters();
@@ -202,6 +206,42 @@ namespace WeAreTogetherEfCodeFirst
             AdminAddPartOne one = new AdminAddPartOne();
             one.Show();
             this.Hide();
+        }
+
+        private void tbxName_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxName.Text.Length <= 0)
+            {
+                errorProvider.SetError(tbxName, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbxAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxAddress.Text.Length <= 0)
+            {
+                errorProvider.SetError(tbxAddress, "This field cannot be empty");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
+        }
+
+        private void tbxPhone_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbxPhone.Text.Length <11 || tbxPhone.Text.Length > 11)
+            {
+                errorProvider.SetError(tbxPhone, "This field must have 11 character");
+            }
+            else
+            {
+                errorProvider.Clear();
+            }
         }
     }
 }
