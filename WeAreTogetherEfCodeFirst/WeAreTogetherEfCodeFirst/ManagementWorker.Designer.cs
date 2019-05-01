@@ -79,7 +79,7 @@
             this.cbxPickAList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxPickAList.FormattingEnabled = true;
             this.cbxPickAList.Items.AddRange(new object[] {
-            "See who works at the same area with you",
+            "See who works as a management and user",
             "See is there any food entry",
             "See which shelter and animal you can access"});
             this.cbxPickAList.Location = new System.Drawing.Point(44, 276);

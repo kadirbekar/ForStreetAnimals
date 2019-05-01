@@ -89,40 +89,30 @@ namespace WeAreTogetherEfCodeFirst
         {
             if (cbxPickWorkType.SelectedIndex == 0)
             {
-                var getShelterOfUser = from sou in _wrt.ShelterOfUsers select sou;
-                var getCity = from c in _wrt.Cities select c;
                 var getManagement = from m in _wrt.Managements select m;
-                var getManagementShelter = from ms in _wrt.ManagementShelters select ms;
                 var getUser = from u in _wrt.Users select u;
-                var getShelter = from sou in _wrt.Shelters select sou;
-                var seeEveryone = from m in getManagement
-                                  join ms in getManagementShelter on
-                                  m.Id equals ms.ManagementId
-                                  join s in getShelter on ms.ShelterId equals s.Id
-                                  join sou in getShelterOfUser on s.Id equals sou.ShelterId
-                                  join u in getUser on sou.UserId equals u.Id
-                                  where (m.CityId == 11)
+                var getManagementFood = from mf in _wrt.ManagementFoods select mf;
+                var seeEveryone = from mf in getManagementFood
+                                  join m in getManagement on
+                                  mf.ManagementId equals m.Id
+                                  join u in getUser on mf.ResponsibleUser equals u.Id
                                   select new
                                   {
                                       managmntName = m.Name,
                                       managmntId = m.Id,
-                                      managmntCity = m.CityId,
-                                      managmntShlterId = ms.ShelterId,
                                       userName = u.Name,
-                                      userId = u.Id,
+                                      userId = u.Id
                                   };
 
                 DataTable dt = new DataTable();
                 dt.Columns.Add("managmntName");
                 dt.Columns.Add("managmntId");
-                dt.Columns.Add("managmntCity");
-                dt.Columns.Add("managmntShlterId");
                 dt.Columns.Add("userName");
                 dt.Columns.Add("userId");
 
                 foreach (var q in seeEveryone)
                 {
-                    dt.Rows.Add(q.managmntName, q.managmntId, q.managmntCity, q.managmntShlterId, q.userName, q.userId);
+                    dt.Rows.Add(q.managmntName, q.managmntId, q.userName, q.userId);
                 }
                 dgwVoluteerWorker.DataSource = dt;
             }
@@ -138,7 +128,7 @@ namespace WeAreTogetherEfCodeFirst
 
         private void cbxTrue_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbxTrue.Checked==true)
+            if (cbxTrue.Checked == true)
             {
                 cbxTrue.Checked = true;
                 cbxFalse.Checked = false;
@@ -168,6 +158,15 @@ namespace WeAreTogetherEfCodeFirst
                 if (cbxTrue.Checked == true)
                 {
                     _managementFood.SupplyDelivery = true;
+                    int managementId = Convert.ToInt32(dgwVoluteerWorker.CurrentRow.Cells[1].Value);
+                    _management = _wrt.Managements.FirstOrDefault(mi => mi.Id == managementId);
+                    _management.Point += 1;
+                    _wrt.SubmitChanges();
+
+                    int userId = Convert.ToInt32(tbxUserId.Text);
+                    _user = _wrt.Users.FirstOrDefault(ui => ui.Id == userId);
+                    _user.Point += 1;
+                    _wrt.SubmitChanges();
                 }
                 else if (cbxFalse.Checked == true)
                 {
@@ -176,17 +175,6 @@ namespace WeAreTogetherEfCodeFirst
                 _managementFood.DeliveryTime = dtpDeliveryTime.Value;
                 _managementFood.ResponsibleUser = Convert.ToInt32(tbxUserId.Text);
                 _wrt.SubmitChanges();
-
-                int managementId = Convert.ToInt32(dgwVoluteerWorker.CurrentRow.Cells[1].Value);
-                _management = _wrt.Managements.FirstOrDefault(mi => mi.Id == managementId);
-                _management.Point += 1;
-                _wrt.SubmitChanges();
-
-                int userId = Convert.ToInt32(tbxUserId.Text);
-                _user = _wrt.Users.FirstOrDefault(ui => ui.Id == userId);
-                _user.Point += 1;
-                _wrt.SubmitChanges();
-
 
                 GetManagementFoodsTable();
                 cbxFalse.Checked = false;
@@ -199,46 +187,41 @@ namespace WeAreTogetherEfCodeFirst
             }
         }
 
+        //To leave the register which belong to user
         private void btnLeave_Click(object sender, EventArgs e)
         {
             try
             {
-                int id = Convert.ToInt32(dgwVoluteerWorker.CurrentRow.Cells[0].Value);
-                _managementFood = _wrt.ManagementFoods.FirstOrDefault(mid => mid.Id == id);
-                _managementFood.SupplyDelivery = false;
-                _managementFood.DeliveryTime = null;
-                _managementFood.ResponsibleUser = null;
+                if (Convert.ToInt32(dgwVoluteerWorker.CurrentRow.Cells[5].Value) == Convert.ToInt32(tbxUserId.Text))
+                {
+                    int id = Convert.ToInt32(dgwVoluteerWorker.CurrentRow.Cells[0].Value);
+                    _managementFood = _wrt.ManagementFoods.FirstOrDefault(mid => mid.Id == id);
+                    _managementFood.SupplyDelivery = false;
+                    _managementFood.DeliveryTime = null;
+                    _managementFood.ResponsibleUser = null;
 
-                int managementId = Convert.ToInt32(dgwVoluteerWorker.CurrentRow.Cells[1].Value);
-                _management = _wrt.Managements.FirstOrDefault(mi => mi.Id == managementId);
-                if (_management.Point==0)
-                {
-                    MessageBox.Show("You cannot leave any register anymore");
-                }
-                else
-                {
+                    int managementId = Convert.ToInt32(dgwVoluteerWorker.CurrentRow.Cells[1].Value);
+                    _management = _wrt.Managements.FirstOrDefault(mi => mi.Id == managementId);
                     _management.Point -= 1;
-                }
-                _wrt.SubmitChanges();
+                    _wrt.SubmitChanges();
 
-                int userId = Convert.ToInt32(tbxUserId.Text);
-                _user = _wrt.Users.FirstOrDefault(ui => ui.Id == userId);
-                if (_user.Point==0)
-                {
-                    MessageBox.Show("You cannot leave any register anymore");
+                    int userId = Convert.ToInt32(tbxUserId.Text);
+                    _user = _wrt.Users.FirstOrDefault(ui => ui.Id == userId);
+                    _user.Point -= 1;
+                    _wrt.SubmitChanges();
+
+                    _wrt.SubmitChanges();
+                    GetManagementFoodsTable();
+                    cbxFalse.Checked = false;
+                    cbxTrue.Checked = false;
+
+                    MessageBox.Show("Register delivered successfully");
                 }
                 else
                 {
-                    _user.Point -= 1;
+                    MessageBox.Show("You cannot leave the register which isn't yours");
                 }
-                _wrt.SubmitChanges();
 
-                _wrt.SubmitChanges();
-                GetManagementFoodsTable();
-                cbxFalse.Checked = false;
-                cbxTrue.Checked = false;
-
-                MessageBox.Show("Register delivered successfully");
             }
             catch
             {

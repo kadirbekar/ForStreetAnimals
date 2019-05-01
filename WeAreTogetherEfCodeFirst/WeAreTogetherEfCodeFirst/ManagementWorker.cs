@@ -25,24 +25,19 @@ namespace WeAreTogetherEfCodeFirst
         {
             if (cbxPickAList.SelectedIndex == 0)
             {
-                var getShelterOfUser = from sou in _wrt.ShelterOfUsers select sou;
-                var getCity = from c in _wrt.Cities select c;
                 var getManagement = from m in _wrt.Managements select m;
-                var getManagementShelter = from ms in _wrt.ManagementShelters select ms;
                 var getUser = from u in _wrt.Users select u;
-                var getShelter = from sou in _wrt.Shelters select sou;
                 var getManagementFood = from mf in _wrt.ManagementFoods select mf;
                 var seeEveryone = from mf in getManagementFood
                                   join m in getManagement on
                                   mf.ManagementId equals m.Id
                                   join u in getUser on mf.ResponsibleUser equals u.Id
-                                  where (u.CityId == 11)
                                   select new
                                   {
                                       managmntName = m.Name,
                                       managmntId = m.Id,
                                       userName = u.Name,
-                                      userId = u.Id,
+                                      userId = u.Id
                                   };
 
                 DataTable dt = new DataTable();

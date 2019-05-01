@@ -60,7 +60,7 @@
             this.cbxPickWorkType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxPickWorkType.FormattingEnabled = true;
             this.cbxPickWorkType.Items.AddRange(new object[] {
-            "See who works at the same area with you",
+            "See who works as a management and user",
             "See is there any food entry",
             "See which shelter and animal you can access"});
             this.cbxPickWorkType.Location = new System.Drawing.Point(39, 277);
