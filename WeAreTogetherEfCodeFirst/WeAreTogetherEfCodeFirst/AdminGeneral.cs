@@ -100,5 +100,27 @@ namespace WeAreTogetherEfCodeFirst
             one.Show();
             this.Hide();
         }
+
+        private void AdminGeneral_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseTheForm(e);
+        }
+
+        private void CloseTheForm(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wanna exit from application", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Login lgn = new Login();
+                lgn.Show();
+                this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
     }
 }

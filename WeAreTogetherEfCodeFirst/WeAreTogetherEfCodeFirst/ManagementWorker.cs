@@ -207,6 +207,47 @@ namespace WeAreTogetherEfCodeFirst
                 MessageBox.Show("We got a problem on the system.Try it another time.");
             }
         }
+
+        private void ManagementWorker_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseTheForm(e);
+        }
+
+        private void CloseTheForm(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wanna exit from application", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Login lgn = new Login();
+                lgn.Show();
+                this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void dtpDateOfFood_ValueChanged(object sender, EventArgs e)
+        {
+            DateControl();
+        }
+
+        private void DateControl()
+        {
+            string currentTime = DateTime.Now.ToString();
+            if (dtpDateOfFood.Value < Convert.ToDateTime(currentTime))
+            {
+                dtpDateOfFood.Value = Convert.ToDateTime(currentTime);
+                MessageBox.Show("You cannot select an old date and time from the current time");
+            }
+            else
+            {
+                dtpDateOfFood.Value = dtpDateOfFood.Value;
+            }
+        }
     }
 }
 

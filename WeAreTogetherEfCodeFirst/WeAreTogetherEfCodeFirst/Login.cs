@@ -126,5 +126,25 @@ namespace WeAreTogetherEfCodeFirst
                 errorProvider.Clear();
             }
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseTheForm(e);
+        }
+
+        private void CloseTheForm(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wanna exit from application", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
     }
 }

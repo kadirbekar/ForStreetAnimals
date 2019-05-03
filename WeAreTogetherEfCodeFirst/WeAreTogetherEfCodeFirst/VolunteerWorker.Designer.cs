@@ -86,6 +86,7 @@
             this.dtpDeliveryTime.Name = "dtpDeliveryTime";
             this.dtpDeliveryTime.Size = new System.Drawing.Size(261, 26);
             this.dtpDeliveryTime.TabIndex = 35;
+            this.dtpDeliveryTime.ValueChanged += new System.EventHandler(this.dtpDeliveryTime_ValueChanged);
             // 
             // tbxUserId
             // 
@@ -208,6 +209,7 @@
             this.Name = "VolunteerWorker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VolunteerWorker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VolunteerWorker_FormClosing);
             this.Load += new System.EventHandler(this.VolunteerWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwVoluteerWorker)).EndInit();
             this.ResumeLayout(false);

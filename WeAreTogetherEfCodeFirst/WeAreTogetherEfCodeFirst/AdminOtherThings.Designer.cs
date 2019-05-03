@@ -280,6 +280,7 @@
             this.Name = "AdminOtherThings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminOtherThings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminOtherThings_FormClosing);
             this.Load += new System.EventHandler(this.AdminOtherThings_Load);
             this.gbxAoT1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwOtherThings)).EndInit();

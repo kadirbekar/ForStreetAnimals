@@ -59,10 +59,14 @@
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pbxManagement = new System.Windows.Forms.PictureBox();
+            this.lblFindSomeone = new System.Windows.Forms.Label();
+            this.txtFindManagement = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwManagement)).BeginInit();
             this.gbxAdminManagement.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxManagement)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddManagement
@@ -93,7 +97,7 @@
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxName.Location = new System.Drawing.Point(212, 412);
+            this.tbxName.Location = new System.Drawing.Point(212, 438);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(252, 26);
             this.tbxName.TabIndex = 4;
@@ -105,7 +109,7 @@
             this.dgwManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwManagement.Location = new System.Drawing.Point(0, 28);
             this.dgwManagement.Name = "dgwManagement";
-            this.dgwManagement.Size = new System.Drawing.Size(904, 220);
+            this.dgwManagement.Size = new System.Drawing.Size(930, 220);
             this.dgwManagement.TabIndex = 3;
             this.dgwManagement.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwManagement_CellClick);
             // 
@@ -113,7 +117,7 @@
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCity.Location = new System.Drawing.Point(29, 348);
+            this.lblCity.Location = new System.Drawing.Point(29, 374);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(39, 20);
             this.lblCity.TabIndex = 4;
@@ -126,7 +130,7 @@
             this.cbxManagementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxManagementType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxManagementType.FormattingEnabled = true;
-            this.cbxManagementType.Location = new System.Drawing.Point(212, 311);
+            this.cbxManagementType.Location = new System.Drawing.Point(212, 337);
             this.cbxManagementType.Name = "cbxManagementType";
             this.cbxManagementType.Size = new System.Drawing.Size(252, 28);
             this.cbxManagementType.TabIndex = 1;
@@ -138,7 +142,7 @@
             this.cbxCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxCity.FormattingEnabled = true;
-            this.cbxCity.Location = new System.Drawing.Point(212, 345);
+            this.cbxCity.Location = new System.Drawing.Point(212, 371);
             this.cbxCity.Name = "cbxCity";
             this.cbxCity.Size = new System.Drawing.Size(252, 28);
             this.cbxCity.TabIndex = 2;
@@ -151,7 +155,7 @@
             this.cbxDistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxDistrict.FormattingEnabled = true;
-            this.cbxDistrict.Location = new System.Drawing.Point(212, 379);
+            this.cbxDistrict.Location = new System.Drawing.Point(212, 405);
             this.cbxDistrict.Name = "cbxDistrict";
             this.cbxDistrict.Size = new System.Drawing.Size(252, 28);
             this.cbxDistrict.TabIndex = 3;
@@ -159,7 +163,7 @@
             // tbxAddress
             // 
             this.tbxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxAddress.Location = new System.Drawing.Point(212, 444);
+            this.tbxAddress.Location = new System.Drawing.Point(212, 470);
             this.tbxAddress.Multiline = true;
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(252, 58);
@@ -169,7 +173,7 @@
             // tbxUsername
             // 
             this.tbxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxUsername.Location = new System.Drawing.Point(212, 508);
+            this.tbxUsername.Location = new System.Drawing.Point(212, 534);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(252, 26);
             this.tbxUsername.TabIndex = 6;
@@ -178,7 +182,7 @@
             // tbxPassword
             // 
             this.tbxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxPassword.Location = new System.Drawing.Point(212, 540);
+            this.tbxPassword.Location = new System.Drawing.Point(212, 566);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(252, 26);
             this.tbxPassword.TabIndex = 7;
@@ -188,7 +192,7 @@
             // 
             this.lblManagementType.AutoSize = true;
             this.lblManagementType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblManagementType.Location = new System.Drawing.Point(29, 314);
+            this.lblManagementType.Location = new System.Drawing.Point(29, 340);
             this.lblManagementType.Name = "lblManagementType";
             this.lblManagementType.Size = new System.Drawing.Size(156, 20);
             this.lblManagementType.TabIndex = 11;
@@ -198,7 +202,7 @@
             // 
             this.lblDistrict.AutoSize = true;
             this.lblDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblDistrict.Location = new System.Drawing.Point(29, 379);
+            this.lblDistrict.Location = new System.Drawing.Point(29, 405);
             this.lblDistrict.Name = "lblDistrict";
             this.lblDistrict.Size = new System.Drawing.Size(69, 20);
             this.lblDistrict.TabIndex = 12;
@@ -208,7 +212,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblName.Location = new System.Drawing.Point(29, 415);
+            this.lblName.Location = new System.Drawing.Point(29, 441);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(55, 20);
             this.lblName.TabIndex = 13;
@@ -218,7 +222,7 @@
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblAddress.Location = new System.Drawing.Point(29, 447);
+            this.lblAddress.Location = new System.Drawing.Point(29, 473);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(75, 20);
             this.lblAddress.TabIndex = 14;
@@ -228,7 +232,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUsername.Location = new System.Drawing.Point(29, 511);
+            this.lblUsername.Location = new System.Drawing.Point(29, 537);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(91, 20);
             this.lblUsername.TabIndex = 15;
@@ -238,7 +242,7 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPassword.Location = new System.Drawing.Point(29, 543);
+            this.lblPassword.Location = new System.Drawing.Point(29, 569);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(86, 20);
             this.lblPassword.TabIndex = 16;
@@ -278,7 +282,7 @@
             this.gbxAdminManagement.Controls.Add(this.btnAddManagement);
             this.gbxAdminManagement.Controls.Add(this.btnUpdateManagement);
             this.gbxAdminManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxAdminManagement.Location = new System.Drawing.Point(604, 311);
+            this.gbxAdminManagement.Location = new System.Drawing.Point(629, 334);
             this.gbxAdminManagement.Name = "gbxAdminManagement";
             this.gbxAdminManagement.Size = new System.Drawing.Size(219, 223);
             this.gbxAdminManagement.TabIndex = 19;
@@ -291,7 +295,7 @@
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(904, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(934, 25);
             this.toolStrip1.TabIndex = 20;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -358,12 +362,44 @@
             this.errorProvider.BlinkRate = 1000;
             this.errorProvider.ContainerControl = this;
             // 
+            // pbxManagement
+            // 
+            this.pbxManagement.Image = ((System.Drawing.Image)(resources.GetObject("pbxManagement.Image")));
+            this.pbxManagement.Location = new System.Drawing.Point(385, 273);
+            this.pbxManagement.Name = "pbxManagement";
+            this.pbxManagement.Size = new System.Drawing.Size(30, 29);
+            this.pbxManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxManagement.TabIndex = 81;
+            this.pbxManagement.TabStop = false;
+            // 
+            // lblFindSomeone
+            // 
+            this.lblFindSomeone.AutoSize = true;
+            this.lblFindSomeone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblFindSomeone.Location = new System.Drawing.Point(421, 279);
+            this.lblFindSomeone.Name = "lblFindSomeone";
+            this.lblFindSomeone.Size = new System.Drawing.Size(208, 20);
+            this.lblFindSomeone.TabIndex = 80;
+            this.lblFindSomeone.Text = "Search any management";
+            // 
+            // txtFindManagement
+            // 
+            this.txtFindManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtFindManagement.Location = new System.Drawing.Point(635, 276);
+            this.txtFindManagement.Name = "txtFindManagement";
+            this.txtFindManagement.Size = new System.Drawing.Size(204, 26);
+            this.txtFindManagement.TabIndex = 79;
+            this.txtFindManagement.TextChanged += new System.EventHandler(this.txtFindManagement_TextChanged);
+            // 
             // AdminManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(904, 611);
+            this.ClientSize = new System.Drawing.Size(934, 641);
+            this.Controls.Add(this.pbxManagement);
+            this.Controls.Add(this.lblFindSomeone);
+            this.Controls.Add(this.txtFindManagement);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.gbxAdminManagement);
             this.Controls.Add(this.lblPassword);
@@ -385,12 +421,14 @@
             this.Name = "AdminManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminManagement";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminManagement_FormClosing);
             this.Load += new System.EventHandler(this.AdminManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwManagement)).EndInit();
             this.gbxAdminManagement.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxManagement)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -427,5 +465,8 @@
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.PictureBox pbxManagement;
+        private System.Windows.Forms.Label lblFindSomeone;
+        private System.Windows.Forms.TextBox txtFindManagement;
     }
 }

@@ -55,10 +55,14 @@
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pbxShelter = new System.Windows.Forms.PictureBox();
+            this.lblFindSomeone = new System.Windows.Forms.Label();
+            this.txtFindShelter = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAdminShelter)).BeginInit();
             this.gbxAdminManagement.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxShelter)).BeginInit();
             this.SuspendLayout();
             // 
             // dgwAdminShelter
@@ -78,7 +82,7 @@
             this.cbxCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxCity.FormattingEnabled = true;
-            this.cbxCity.Location = new System.Drawing.Point(155, 293);
+            this.cbxCity.Location = new System.Drawing.Point(155, 357);
             this.cbxCity.Name = "cbxCity";
             this.cbxCity.Size = new System.Drawing.Size(295, 28);
             this.cbxCity.TabIndex = 2;
@@ -91,7 +95,7 @@
             this.cbxDistrict.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxDistrict.FormattingEnabled = true;
-            this.cbxDistrict.Location = new System.Drawing.Point(155, 325);
+            this.cbxDistrict.Location = new System.Drawing.Point(155, 389);
             this.cbxDistrict.Name = "cbxDistrict";
             this.cbxDistrict.Size = new System.Drawing.Size(295, 28);
             this.cbxDistrict.TabIndex = 3;
@@ -99,7 +103,7 @@
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxName.Location = new System.Drawing.Point(155, 359);
+            this.tbxName.Location = new System.Drawing.Point(155, 423);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(295, 26);
             this.tbxName.TabIndex = 5;
@@ -108,7 +112,7 @@
             // tbxAddress
             // 
             this.tbxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxAddress.Location = new System.Drawing.Point(155, 393);
+            this.tbxAddress.Location = new System.Drawing.Point(155, 457);
             this.tbxAddress.Multiline = true;
             this.tbxAddress.Name = "tbxAddress";
             this.tbxAddress.Size = new System.Drawing.Size(295, 78);
@@ -118,7 +122,7 @@
             // tbxPhone
             // 
             this.tbxPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxPhone.Location = new System.Drawing.Point(155, 478);
+            this.tbxPhone.Location = new System.Drawing.Point(155, 542);
             this.tbxPhone.Name = "tbxPhone";
             this.tbxPhone.Size = new System.Drawing.Size(295, 26);
             this.tbxPhone.TabIndex = 7;
@@ -130,7 +134,7 @@
             this.gbxAdminManagement.Controls.Add(this.btnAddShelter);
             this.gbxAdminManagement.Controls.Add(this.btnUpdateShelter);
             this.gbxAdminManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxAdminManagement.Location = new System.Drawing.Point(586, 293);
+            this.gbxAdminManagement.Location = new System.Drawing.Point(586, 357);
             this.gbxAdminManagement.Name = "gbxAdminManagement";
             this.gbxAdminManagement.Size = new System.Drawing.Size(219, 223);
             this.gbxAdminManagement.TabIndex = 20;
@@ -143,7 +147,7 @@
             this.btnDeleteShelter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnDeleteShelter.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteShelter.Image")));
             this.btnDeleteShelter.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnDeleteShelter.Location = new System.Drawing.Point(30, 151);
+            this.btnDeleteShelter.Location = new System.Drawing.Point(30, 154);
             this.btnDeleteShelter.Name = "btnDeleteShelter";
             this.btnDeleteShelter.Size = new System.Drawing.Size(170, 54);
             this.btnDeleteShelter.TabIndex = 10;
@@ -183,7 +187,7 @@
             // 
             this.lblCity.AutoSize = true;
             this.lblCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCity.Location = new System.Drawing.Point(34, 296);
+            this.lblCity.Location = new System.Drawing.Point(34, 357);
             this.lblCity.Name = "lblCity";
             this.lblCity.Size = new System.Drawing.Size(39, 20);
             this.lblCity.TabIndex = 21;
@@ -193,7 +197,7 @@
             // 
             this.lblDistrict.AutoSize = true;
             this.lblDistrict.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblDistrict.Location = new System.Drawing.Point(34, 328);
+            this.lblDistrict.Location = new System.Drawing.Point(34, 392);
             this.lblDistrict.Name = "lblDistrict";
             this.lblDistrict.Size = new System.Drawing.Size(66, 20);
             this.lblDistrict.TabIndex = 22;
@@ -203,7 +207,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblName.Location = new System.Drawing.Point(34, 362);
+            this.lblName.Location = new System.Drawing.Point(34, 426);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(55, 20);
             this.lblName.TabIndex = 23;
@@ -213,7 +217,7 @@
             // 
             this.lblAddress.AutoSize = true;
             this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblAddress.Location = new System.Drawing.Point(34, 396);
+            this.lblAddress.Location = new System.Drawing.Point(34, 460);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(75, 20);
             this.lblAddress.TabIndex = 24;
@@ -223,7 +227,7 @@
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPhone.Location = new System.Drawing.Point(34, 481);
+            this.lblPhone.Location = new System.Drawing.Point(34, 545);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(60, 20);
             this.lblPhone.TabIndex = 25;
@@ -234,7 +238,7 @@
             this.lblWarning.AutoSize = true;
             this.lblWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(34, 256);
+            this.lblWarning.Location = new System.Drawing.Point(34, 295);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(308, 20);
             this.lblWarning.TabIndex = 26;
@@ -313,12 +317,44 @@
             this.errorProvider.BlinkRate = 1000;
             this.errorProvider.ContainerControl = this;
             // 
+            // pbxShelter
+            // 
+            this.pbxShelter.Image = ((System.Drawing.Image)(resources.GetObject("pbxShelter.Image")));
+            this.pbxShelter.Location = new System.Drawing.Point(400, 292);
+            this.pbxShelter.Name = "pbxShelter";
+            this.pbxShelter.Size = new System.Drawing.Size(30, 29);
+            this.pbxShelter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxShelter.TabIndex = 78;
+            this.pbxShelter.TabStop = false;
+            // 
+            // lblFindSomeone
+            // 
+            this.lblFindSomeone.AutoSize = true;
+            this.lblFindSomeone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblFindSomeone.Location = new System.Drawing.Point(436, 298);
+            this.lblFindSomeone.Name = "lblFindSomeone";
+            this.lblFindSomeone.Size = new System.Drawing.Size(159, 20);
+            this.lblFindSomeone.TabIndex = 77;
+            this.lblFindSomeone.Text = "Search any shelter";
+            // 
+            // txtFindShelter
+            // 
+            this.txtFindShelter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtFindShelter.Location = new System.Drawing.Point(601, 295);
+            this.txtFindShelter.Name = "txtFindShelter";
+            this.txtFindShelter.Size = new System.Drawing.Size(204, 26);
+            this.txtFindShelter.TabIndex = 76;
+            this.txtFindShelter.TextChanged += new System.EventHandler(this.txtFindShelter_TextChanged);
+            // 
             // AdminShelter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(884, 611);
+            this.Controls.Add(this.pbxShelter);
+            this.Controls.Add(this.lblFindSomeone);
+            this.Controls.Add(this.txtFindShelter);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.lblPhone);
@@ -336,12 +372,14 @@
             this.Name = "AdminShelter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminShelter";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminShelter_FormClosing);
             this.Load += new System.EventHandler(this.AdminShelter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAdminShelter)).EndInit();
             this.gbxAdminManagement.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxShelter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +412,8 @@
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.PictureBox pbxShelter;
+        private System.Windows.Forms.Label lblFindSomeone;
+        private System.Windows.Forms.TextBox txtFindShelter;
     }
 }

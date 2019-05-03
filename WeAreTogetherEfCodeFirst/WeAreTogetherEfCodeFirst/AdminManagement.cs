@@ -51,8 +51,8 @@ namespace WeAreTogetherEfCodeFirst
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
             dt.Columns.Add("ManagementType");
-            dt.Columns.Add("CityId");
-            dt.Columns.Add("DistrictId");
+            dt.Columns.Add("City");
+            dt.Columns.Add("District");
             dt.Columns.Add("Name");
             dt.Columns.Add("Address");
             dt.Columns.Add("Point");
@@ -61,11 +61,13 @@ namespace WeAreTogetherEfCodeFirst
 
             foreach (var item in s1)
             {
-                var s2 = from x in _wrt.Cities where x.Id == item.CityId select x;
-                string Cityname = s2.ToList()[0].Name.ToString();
-                var s3 = from x in _wrt.Districts where x.City == s2.ToList()[0].Id select x;
-                string DistrictName = s3.ToList()[0].District1.ToString();
-                dt.Rows.Add(item.Id, item.ManagementTypeId, item.CityId, item.DistrictId, item.Name, item.Address, item.Point, item.Username, item.Password);
+                var getManagementTypeId = from mt in _wrt.ManagementTypes where mt.Id == item.ManagementTypeId select mt;
+                string managementTypeName = getManagementTypeId.ToList()[0].Name.ToString();
+                var getCityId = from x in _wrt.Cities where x.Id == item.CityId select x;
+                string Cityname = getCityId.ToList()[0].Name.ToString();
+                var getDistrictId = from x in _wrt.Districts where x.Id == item.DistrictId select x;
+                string DistrictName = getDistrictId.ToList()[0].District1.ToString();
+                dt.Rows.Add(item.Id, managementTypeName, Cityname, DistrictName, item.Name, item.Address, item.Point, item.Username, item.Password);
             }
             dgwManagement.DataSource = dt;
         }
@@ -285,6 +287,59 @@ namespace WeAreTogetherEfCodeFirst
             {
                 errorProvider.Clear();
             }
+        }
+
+        private void AdminManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseTheForm(e);
+        }
+
+        private void CloseTheForm(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wanna exit from application", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Login lgn = new Login();
+                lgn.Show();
+                this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void txtFindManagement_TextChanged(object sender, EventArgs e)
+        {
+            SearchManagement(txtFindManagement.Text);
+        }
+        public void SearchManagement(string valueToFind)
+        {
+            var searchManagement = from m in _wrt.Managements where m.Name.Contains(valueToFind) select m;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("ManagementType");
+            dt.Columns.Add("City");
+            dt.Columns.Add("District");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Address");
+            dt.Columns.Add("Point");
+            dt.Columns.Add("Username");
+            dt.Columns.Add("Password");
+
+            foreach (var item in searchManagement)
+            {
+                var getManagementTypeId = from mt in _wrt.ManagementTypes where mt.Id == item.ManagementTypeId select mt;
+                string managementTypeName = getManagementTypeId.ToList()[0].Name.ToString();
+                var getCityId = from x in _wrt.Cities where x.Id == item.CityId select x;
+                string Cityname = getCityId.ToList()[0].Name.ToString();
+                var getDistrictId = from x in _wrt.Districts where x.Id == item.DistrictId select x;
+                string DistrictName = getDistrictId.ToList()[0].District1.ToString();
+                dt.Rows.Add(item.Id, managementTypeName, Cityname, DistrictName, item.Name, item.Address, item.Point, item.Username, item.Password);
+            }
+            dgwManagement.DataSource = dt;
         }
     }
 }

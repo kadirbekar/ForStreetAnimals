@@ -43,19 +43,19 @@ namespace WeAreTogetherEfCodeFirst
             var s1 = from x in _wrt.Shelters select x;
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
-            dt.Columns.Add("CityId");
-            dt.Columns.Add("DistrictId");
+            dt.Columns.Add("City");
+            dt.Columns.Add("District");
             dt.Columns.Add("Name");
             dt.Columns.Add("Address");
             dt.Columns.Add("Phone");
 
             foreach (var item in s1)
             {
-                var s2 = from x in _wrt.Cities where x.Id == item.CityId select x;
-                string Cityname = s2.ToList()[0].Name.ToString();
-                var s3 = from x in _wrt.Districts where x.City == s2.ToList()[0].Id select x;
-                string DistrictName = s3.ToList()[0].District1.ToString();
-                dt.Rows.Add(item.Id, item.CityId, item.DistrictId, item.Name, item.Address, item.Phone);
+                var getCityId = from x in _wrt.Cities where x.Id == item.CityId select x;
+                string Cityname = getCityId.ToList()[0].Name.ToString();
+                var getDistrictId = from x in _wrt.Districts where x.Id == item.DistrictId select x;
+                string DistrictName = getDistrictId.ToList()[0].District1.ToString();
+                dt.Rows.Add(item.Id, Cityname, DistrictName, item.Name, item.Address, item.Phone);
             }
             dgwAdminShelter.DataSource = dt;
         }
@@ -242,6 +242,54 @@ namespace WeAreTogetherEfCodeFirst
             {
                 errorProvider.Clear();
             }
+        }
+
+        private void AdminShelter_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseTheForm(e);
+        }
+
+        private void CloseTheForm(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wanna exit from application", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Login lgn = new Login();
+                lgn.Show();
+                this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void txtFindShelter_TextChanged(object sender, EventArgs e)
+        {
+            SearchShelter(txtFindShelter.Text);
+        }
+        public void SearchShelter(string valueToFind)
+        {
+            var searchShelter = from s in _wrt.Shelters where s.Name.Contains(valueToFind) select s;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("City");
+            dt.Columns.Add("District");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Address");
+            dt.Columns.Add("Phone");
+
+            foreach (var item in searchShelter)
+            {
+                var getCityId = from x in _wrt.Cities where x.Id == item.CityId select x;
+                string Cityname = getCityId.ToList()[0].Name.ToString();
+                var getDistrictId = from x in _wrt.Districts where x.Id == item.DistrictId select x;
+                string DistrictName = getDistrictId.ToList()[0].District1.ToString();
+                dt.Rows.Add(item.Id, Cityname, DistrictName, item.Name, item.Address, item.Phone);
+            }
+            dgwAdminShelter.DataSource = dt;
         }
     }
 }

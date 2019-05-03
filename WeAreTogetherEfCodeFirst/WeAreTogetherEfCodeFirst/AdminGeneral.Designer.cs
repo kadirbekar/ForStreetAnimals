@@ -281,6 +281,7 @@
             this.Name = "AdminGeneral";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminGeneral";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminGeneral_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbxAnimal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxShelter)).EndInit();

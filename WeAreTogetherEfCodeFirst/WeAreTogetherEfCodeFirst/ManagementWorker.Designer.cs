@@ -63,6 +63,7 @@
             this.dtpDateOfFood.Name = "dtpDateOfFood";
             this.dtpDateOfFood.Size = new System.Drawing.Size(283, 26);
             this.dtpDateOfFood.TabIndex = 44;
+            this.dtpDateOfFood.ValueChanged += new System.EventHandler(this.dtpDateOfFood_ValueChanged);
             // 
             // lblPickSomething
             // 
@@ -97,7 +98,6 @@
             this.dgwManagementWorker.Name = "dgwManagementWorker";
             this.dgwManagementWorker.Size = new System.Drawing.Size(984, 190);
             this.dgwManagementWorker.TabIndex = 50;
-            this.dgwManagementWorker.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwManagementWorker_CellClick);
             // 
             // lblUsername
             // 
@@ -194,6 +194,7 @@
             this.Name = "ManagementWorker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Management Worker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManagementWorker_FormClosing);
             this.Load += new System.EventHandler(this.ManagementWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwManagementWorker)).EndInit();
             this.ResumeLayout(false);

@@ -59,11 +59,15 @@
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pbxAnimal = new System.Windows.Forms.PictureBox();
+            this.lblFindSomeone = new System.Windows.Forms.Label();
+            this.txtFindAnimal = new System.Windows.Forms.TextBox();
             this.gbxAdminAnimal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAnimal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beraberiz2DataSet3)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAnimal)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxAdminAnimal
@@ -72,7 +76,7 @@
             this.gbxAdminAnimal.Controls.Add(this.btnAddAnimal);
             this.gbxAdminAnimal.Controls.Add(this.btnUpdateAnimal);
             this.gbxAdminAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxAdminAnimal.Location = new System.Drawing.Point(588, 301);
+            this.gbxAdminAnimal.Location = new System.Drawing.Point(623, 329);
             this.gbxAdminAnimal.Name = "gbxAdminAnimal";
             this.gbxAdminAnimal.Size = new System.Drawing.Size(219, 223);
             this.gbxAdminAnimal.TabIndex = 20;
@@ -127,7 +131,7 @@
             this.dgwAnimal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwAnimal.Location = new System.Drawing.Point(0, 28);
             this.dgwAnimal.Name = "dgwAnimal";
-            this.dgwAnimal.Size = new System.Drawing.Size(884, 220);
+            this.dgwAnimal.Size = new System.Drawing.Size(914, 220);
             this.dgwAnimal.TabIndex = 21;
             this.dgwAnimal.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwAnimal_CellClick);
             // 
@@ -138,7 +142,7 @@
             this.cbxKindOfAnimal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxKindOfAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxKindOfAnimal.FormattingEnabled = true;
-            this.cbxKindOfAnimal.Location = new System.Drawing.Point(167, 302);
+            this.cbxKindOfAnimal.Location = new System.Drawing.Point(191, 335);
             this.cbxKindOfAnimal.Name = "cbxKindOfAnimal";
             this.cbxKindOfAnimal.Size = new System.Drawing.Size(198, 28);
             this.cbxKindOfAnimal.TabIndex = 1;
@@ -146,7 +150,7 @@
             // dtpAnimal
             // 
             this.dtpAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dtpAnimal.Location = new System.Drawing.Point(167, 404);
+            this.dtpAnimal.Location = new System.Drawing.Point(191, 437);
             this.dtpAnimal.Name = "dtpAnimal";
             this.dtpAnimal.Size = new System.Drawing.Size(283, 26);
             this.dtpAnimal.TabIndex = 4;
@@ -154,7 +158,7 @@
             // tbxName
             // 
             this.tbxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxName.Location = new System.Drawing.Point(167, 370);
+            this.tbxName.Location = new System.Drawing.Point(191, 403);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(198, 26);
             this.tbxName.TabIndex = 3;
@@ -163,7 +167,7 @@
             // tbxNote
             // 
             this.tbxNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxNote.Location = new System.Drawing.Point(167, 440);
+            this.tbxNote.Location = new System.Drawing.Point(191, 473);
             this.tbxNote.Multiline = true;
             this.tbxNote.Name = "tbxNote";
             this.tbxNote.Size = new System.Drawing.Size(283, 84);
@@ -174,7 +178,7 @@
             // 
             this.cbxTrue.AutoSize = true;
             this.cbxTrue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbxTrue.Location = new System.Drawing.Point(167, 536);
+            this.cbxTrue.Location = new System.Drawing.Point(191, 569);
             this.cbxTrue.Name = "cbxTrue";
             this.cbxTrue.Size = new System.Drawing.Size(59, 24);
             this.cbxTrue.TabIndex = 6;
@@ -186,7 +190,7 @@
             // 
             this.lblKinfOfAnimal.AutoSize = true;
             this.lblKinfOfAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblKinfOfAnimal.Location = new System.Drawing.Point(14, 305);
+            this.lblKinfOfAnimal.Location = new System.Drawing.Point(38, 338);
             this.lblKinfOfAnimal.Name = "lblKinfOfAnimal";
             this.lblKinfOfAnimal.Size = new System.Drawing.Size(127, 20);
             this.lblKinfOfAnimal.TabIndex = 29;
@@ -196,7 +200,7 @@
             // 
             this.lblShelterId.AutoSize = true;
             this.lblShelterId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblShelterId.Location = new System.Drawing.Point(14, 336);
+            this.lblShelterId.Location = new System.Drawing.Point(38, 369);
             this.lblShelterId.Name = "lblShelterId";
             this.lblShelterId.Size = new System.Drawing.Size(83, 20);
             this.lblShelterId.TabIndex = 30;
@@ -206,7 +210,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblName.Location = new System.Drawing.Point(14, 373);
+            this.lblName.Location = new System.Drawing.Point(38, 406);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(55, 20);
             this.lblName.TabIndex = 31;
@@ -216,7 +220,7 @@
             // 
             this.lblDateOfRegister.AutoSize = true;
             this.lblDateOfRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblDateOfRegister.Location = new System.Drawing.Point(14, 409);
+            this.lblDateOfRegister.Location = new System.Drawing.Point(38, 442);
             this.lblDateOfRegister.Name = "lblDateOfRegister";
             this.lblDateOfRegister.Size = new System.Drawing.Size(145, 20);
             this.lblDateOfRegister.TabIndex = 32;
@@ -226,7 +230,7 @@
             // 
             this.lblNote.AutoSize = true;
             this.lblNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblNote.Location = new System.Drawing.Point(14, 443);
+            this.lblNote.Location = new System.Drawing.Point(38, 476);
             this.lblNote.Name = "lblNote";
             this.lblNote.Size = new System.Drawing.Size(113, 20);
             this.lblNote.TabIndex = 33;
@@ -236,7 +240,7 @@
             // 
             this.lblPet.AutoSize = true;
             this.lblPet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPet.Location = new System.Drawing.Point(14, 536);
+            this.lblPet.Location = new System.Drawing.Point(38, 569);
             this.lblPet.Name = "lblPet";
             this.lblPet.Size = new System.Drawing.Size(36, 20);
             this.lblPet.TabIndex = 34;
@@ -246,7 +250,7 @@
             // 
             this.cbxFalse.AutoSize = true;
             this.cbxFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbxFalse.Location = new System.Drawing.Point(232, 536);
+            this.cbxFalse.Location = new System.Drawing.Point(256, 569);
             this.cbxFalse.Name = "cbxFalse";
             this.cbxFalse.Size = new System.Drawing.Size(72, 24);
             this.cbxFalse.TabIndex = 7;
@@ -259,7 +263,7 @@
             this.lblWarning.AutoSize = true;
             this.lblWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(12, 261);
+            this.lblWarning.Location = new System.Drawing.Point(36, 280);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(313, 20);
             this.lblWarning.TabIndex = 36;
@@ -272,7 +276,7 @@
             this.cbxShelterId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxShelterId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxShelterId.FormattingEnabled = true;
-            this.cbxShelterId.Location = new System.Drawing.Point(167, 336);
+            this.cbxShelterId.Location = new System.Drawing.Point(191, 369);
             this.cbxShelterId.Name = "cbxShelterId";
             this.cbxShelterId.Size = new System.Drawing.Size(86, 28);
             this.cbxShelterId.TabIndex = 37;
@@ -288,7 +292,7 @@
             this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(884, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(914, 25);
             this.toolStrip1.TabIndex = 38;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -355,12 +359,44 @@
             this.errorProvider.BlinkRate = 1000;
             this.errorProvider.ContainerControl = this;
             // 
+            // pbxAnimal
+            // 
+            this.pbxAnimal.Image = ((System.Drawing.Image)(resources.GetObject("pbxAnimal.Image")));
+            this.pbxAnimal.Location = new System.Drawing.Point(437, 275);
+            this.pbxAnimal.Name = "pbxAnimal";
+            this.pbxAnimal.Size = new System.Drawing.Size(30, 29);
+            this.pbxAnimal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxAnimal.TabIndex = 81;
+            this.pbxAnimal.TabStop = false;
+            // 
+            // lblFindSomeone
+            // 
+            this.lblFindSomeone.AutoSize = true;
+            this.lblFindSomeone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblFindSomeone.Location = new System.Drawing.Point(473, 281);
+            this.lblFindSomeone.Name = "lblFindSomeone";
+            this.lblFindSomeone.Size = new System.Drawing.Size(156, 20);
+            this.lblFindSomeone.TabIndex = 80;
+            this.lblFindSomeone.Text = "Search any animal";
+            // 
+            // txtFindAnimal
+            // 
+            this.txtFindAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtFindAnimal.Location = new System.Drawing.Point(638, 278);
+            this.txtFindAnimal.Name = "txtFindAnimal";
+            this.txtFindAnimal.Size = new System.Drawing.Size(204, 26);
+            this.txtFindAnimal.TabIndex = 79;
+            this.txtFindAnimal.TextChanged += new System.EventHandler(this.txtFindAnimal_TextChanged);
+            // 
             // AdminAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(884, 631);
+            this.ClientSize = new System.Drawing.Size(914, 661);
+            this.Controls.Add(this.pbxAnimal);
+            this.Controls.Add(this.lblFindSomeone);
+            this.Controls.Add(this.txtFindAnimal);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.cbxShelterId);
             this.Controls.Add(this.lblWarning);
@@ -381,6 +417,7 @@
             this.Name = "AdminAnimal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAnimal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminAnimal_FormClosing);
             this.Load += new System.EventHandler(this.AdminAnimal_Load);
             this.gbxAdminAnimal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAnimal)).EndInit();
@@ -388,6 +425,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAnimal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +462,8 @@
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.PictureBox pbxAnimal;
+        private System.Windows.Forms.Label lblFindSomeone;
+        private System.Windows.Forms.TextBox txtFindAnimal;
     }
 }

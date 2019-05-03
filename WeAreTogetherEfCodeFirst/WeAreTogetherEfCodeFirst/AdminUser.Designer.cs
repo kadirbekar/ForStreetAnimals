@@ -66,10 +66,14 @@
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtFindSomeone = new System.Windows.Forms.TextBox();
+            this.lblFindSomeone = new System.Windows.Forms.Label();
+            this.pbsUser = new System.Windows.Forms.PictureBox();
             this.gbxAdminUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAdminUser)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbsUser)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -332,7 +336,7 @@
             this.gbxAdminUser.Controls.Add(this.btnAddUser);
             this.gbxAdminUser.Controls.Add(this.btnUpdateUser);
             this.gbxAdminUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxAdminUser.Location = new System.Drawing.Point(689, 341);
+            this.gbxAdminUser.Location = new System.Drawing.Point(811, 333);
             this.gbxAdminUser.Name = "gbxAdminUser";
             this.gbxAdminUser.Size = new System.Drawing.Size(219, 223);
             this.gbxAdminUser.TabIndex = 49;
@@ -432,12 +436,44 @@
             this.errorProvider.BlinkRate = 1000;
             this.errorProvider.ContainerControl = this;
             // 
+            // txtFindSomeone
+            // 
+            this.txtFindSomeone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtFindSomeone.Location = new System.Drawing.Point(826, 269);
+            this.txtFindSomeone.Name = "txtFindSomeone";
+            this.txtFindSomeone.Size = new System.Drawing.Size(204, 26);
+            this.txtFindSomeone.TabIndex = 73;
+            this.txtFindSomeone.TextChanged += new System.EventHandler(this.txtFindSomeone_TextChanged);
+            // 
+            // lblFindSomeone
+            // 
+            this.lblFindSomeone.AutoSize = true;
+            this.lblFindSomeone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblFindSomeone.Location = new System.Drawing.Point(681, 272);
+            this.lblFindSomeone.Name = "lblFindSomeone";
+            this.lblFindSomeone.Size = new System.Drawing.Size(139, 20);
+            this.lblFindSomeone.TabIndex = 74;
+            this.lblFindSomeone.Text = "Search any user";
+            // 
+            // pbsUser
+            // 
+            this.pbsUser.Image = ((System.Drawing.Image)(resources.GetObject("pbsUser.Image")));
+            this.pbsUser.Location = new System.Drawing.Point(645, 266);
+            this.pbsUser.Name = "pbsUser";
+            this.pbsUser.Size = new System.Drawing.Size(30, 29);
+            this.pbsUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbsUser.TabIndex = 75;
+            this.pbsUser.TabStop = false;
+            // 
             // AdminUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1184, 646);
+            this.Controls.Add(this.pbsUser);
+            this.Controls.Add(this.lblFindSomeone);
+            this.Controls.Add(this.txtFindSomeone);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
@@ -466,12 +502,14 @@
             this.Name = "AdminUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminUser";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminUser_FormClosing);
             this.Load += new System.EventHandler(this.AdminUser_Load);
             this.gbxAdminUser.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAdminUser)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbsUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,5 +552,8 @@
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label lblFindSomeone;
+        private System.Windows.Forms.TextBox txtFindSomeone;
+        private System.Windows.Forms.PictureBox pbsUser;
     }
 }

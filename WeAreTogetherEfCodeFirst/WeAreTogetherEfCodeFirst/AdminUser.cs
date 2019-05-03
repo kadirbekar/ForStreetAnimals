@@ -71,10 +71,10 @@ namespace WeAreTogetherEfCodeFirst
             
             foreach (var item in s1)
             {
-                var s2 = from x in _wrt.Cities where x.Id == item.CityId select x;
-                string Cityname = s2.ToList()[0].Name.ToString();
-                var s3 = from x in _wrt.Districts where x.Id == item.DistrictId select x;
-                string DistrictName = s3.ToList()[0].District1.ToString();
+                var getCityId = from x in _wrt.Cities where x.Id == item.CityId select x;
+                string Cityname = getCityId.ToList()[0].Name.ToString();
+                var getDistrictId = from x in _wrt.Districts where x.Id == item.DistrictId select x;
+                string DistrictName = getDistrictId.ToList()[0].District1.ToString();
                 dt.Rows.Add(item.Id, item.Name, item.Surname,item.IdentityNumber,item.Gender, item.Username, item.Password, Cityname, DistrictName, item.Birthday,item.Point,item.Address);
             }
             dgwAdminUser.DataSource = dt;
@@ -362,6 +362,60 @@ namespace WeAreTogetherEfCodeFirst
             {
                 errorProvider.Clear();
             }
+        }
+
+        private void AdminUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseTheForm(e);
+        }
+
+        private void CloseTheForm(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wanna exit from application", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Login lgn = new Login();
+                lgn.Show();
+                this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void txtFindSomeone_TextChanged(object sender, EventArgs e)
+        {
+            searchSomeone(txtFindSomeone.Text);
+        }
+        public void searchSomeone(string valueToFind)
+        {
+            var searchSomeone = from u in _wrt.Users where u.Name.Contains(valueToFind) select u;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("Surname");
+            dt.Columns.Add("IdentityNumber");
+            dt.Columns.Add("Gender");
+            dt.Columns.Add("Username");
+            dt.Columns.Add("Password");
+            dt.Columns.Add("City");
+            dt.Columns.Add("District");
+            dt.Columns.Add("Birthday");
+            dt.Columns.Add("Point");
+            dt.Columns.Add("Address");
+
+            foreach (var item in searchSomeone)
+            {
+                var getCityId = from x in _wrt.Cities where x.Id == item.CityId select x;
+                string Cityname = getCityId.ToList()[0].Name.ToString();
+                var getDistrictId = from x in _wrt.Districts where x.Id == item.DistrictId select x;
+                string DistrictName = getDistrictId.ToList()[0].District1.ToString();
+                dt.Rows.Add(item.Id, item.Name, item.Surname, item.IdentityNumber, item.Gender, item.Username, item.Password, Cityname, DistrictName, item.Birthday, item.Point, item.Address);
+            }
+            dgwAdminUser.DataSource = dt;
         }
     }
 }

@@ -384,6 +384,7 @@
             this.Name = "AdminAddPartOne";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminAddPartOne";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminAddPartOne_FormClosing);
             this.Load += new System.EventHandler(this.AdminAddPartOne_Load);
             this.gbxCrud.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwAddPart)).EndInit();

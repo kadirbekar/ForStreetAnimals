@@ -59,15 +59,19 @@ namespace WeAreTogetherEfCodeFirst
             var getAnimals = from an in _wrt.Animals select an;
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
-            dt.Columns.Add("KindOfAnimalId");
-            dt.Columns.Add("ShelterId");
+            dt.Columns.Add("KindOfAnimalName");
+            dt.Columns.Add("ShelterName");
             dt.Columns.Add("Name");
             dt.Columns.Add("DateOfRegister");
             dt.Columns.Add("Note");
             dt.Columns.Add("Pet");
             foreach (var animal in getAnimals)
             {
-                dt.Rows.Add(animal.Id, animal.KindOfAnimalId, animal.ShelterId, animal.Name, animal.DateOfRegister, animal.Note, animal.Pet);
+                var getKindOfAnimalId = from koa in _wrt.KindOfAnimals where koa.Id == animal.KindOfAnimalId select koa;
+                string kindOfAnimalName = getKindOfAnimalId.ToList()[0].Name.ToString();
+                var getShelterId = from s in _wrt.Shelters where animal.ShelterId == s.Id select s;
+                string shelterName = getShelterId.ToList()[0].Name.ToString();
+                dt.Rows.Add(animal.Id, kindOfAnimalName, shelterName, animal.Name, animal.DateOfRegister, animal.Note, animal.Pet);
             }
             dgwAnimal.DataSource = dt;
         }
@@ -261,6 +265,54 @@ namespace WeAreTogetherEfCodeFirst
             {
                 errorProvider.Clear();
             }
+        }
+
+        private void AdminAnimal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseTheForm(e);
+        }
+
+        private void CloseTheForm(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wanna exit from application", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Login lgn = new Login();
+                lgn.Show();
+                this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void txtFindAnimal_TextChanged(object sender, EventArgs e)
+        {
+            SearchAnimal(txtFindAnimal.Text);
+        }
+        public void SearchAnimal(string valueToFind)
+        {
+            var searchAnimal = from an in _wrt.Animals where an.Name.Contains(valueToFind) select an;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id");
+            dt.Columns.Add("KindOfAnimalName");
+            dt.Columns.Add("ShelterName");
+            dt.Columns.Add("Name");
+            dt.Columns.Add("DateOfRegister");
+            dt.Columns.Add("Note");
+            dt.Columns.Add("Pet");
+            foreach (var animal in searchAnimal)
+            {
+                var getKindOfAnimalId = from koa in _wrt.KindOfAnimals where koa.Id == animal.KindOfAnimalId select koa;
+                string kindOfAnimalName = getKindOfAnimalId.ToList()[0].Name.ToString();
+                var getShelterId = from s in _wrt.Shelters where animal.ShelterId == s.Id select s;
+                string shelterName = getShelterId.ToList()[0].Name.ToString();
+                dt.Rows.Add(animal.Id, kindOfAnimalName, shelterName, animal.Name, animal.DateOfRegister, animal.Note, animal.Pet);
+            }
+            dgwAnimal.DataSource = dt;
         }
     }
 }

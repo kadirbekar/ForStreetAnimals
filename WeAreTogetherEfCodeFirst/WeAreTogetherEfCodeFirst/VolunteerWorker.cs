@@ -29,6 +29,7 @@ namespace WeAreTogetherEfCodeFirst
             tbxUserId.Enabled = false;
             lblUsername.Text = Username + " signed";
             GetVolunteerId();
+            GetManagementFoodsTable();
         }
 
         private void GetVolunteerId()
@@ -226,6 +227,47 @@ namespace WeAreTogetherEfCodeFirst
             catch
             {
                 MessageBox.Show("We got a problem on the system.Try it another time.");
+            }
+        }
+
+        private void VolunteerWorker_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CloseTheForm(e);
+        }
+
+        private void CloseTheForm(FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you wanna exit from application", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Login lgn = new Login();
+                lgn.Show();
+                this.Hide();
+            }
+            else
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+
+        private void dtpDeliveryTime_ValueChanged(object sender, EventArgs e)
+        {
+            DateControl();
+        }
+
+        private void DateControl()
+        {
+            string currentTime = DateTime.Now.ToString();
+            if (dtpDeliveryTime.Value < Convert.ToDateTime(currentTime))
+            {
+                dtpDeliveryTime.Value = Convert.ToDateTime(currentTime);
+                MessageBox.Show("You cannot select an old date and time from the current time");
+            }
+            else
+            {
+                dtpDeliveryTime.Value = dtpDeliveryTime.Value;
             }
         }
     }
