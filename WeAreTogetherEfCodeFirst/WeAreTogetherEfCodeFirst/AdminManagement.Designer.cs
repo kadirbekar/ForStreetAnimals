@@ -282,7 +282,7 @@
             this.gbxAdminManagement.Controls.Add(this.btnAddManagement);
             this.gbxAdminManagement.Controls.Add(this.btnUpdateManagement);
             this.gbxAdminManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxAdminManagement.Location = new System.Drawing.Point(629, 334);
+            this.gbxAdminManagement.Location = new System.Drawing.Point(620, 334);
             this.gbxAdminManagement.Name = "gbxAdminManagement";
             this.gbxAdminManagement.Size = new System.Drawing.Size(219, 223);
             this.gbxAdminManagement.TabIndex = 19;

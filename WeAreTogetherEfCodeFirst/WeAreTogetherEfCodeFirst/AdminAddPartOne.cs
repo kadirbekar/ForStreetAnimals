@@ -91,12 +91,16 @@ namespace WeAreTogetherEfCodeFirst
             DataTable d1 = new DataTable();
             var getUserPhone = from up in _wrt.UserPhones select up;
             d1.Columns.Add("Id");
-            d1.Columns.Add("UserId");
+            d1.Columns.Add("User");
             d1.Columns.Add("PhoneNumber");
-            d1.Columns.Add("PhoneId");
+            d1.Columns.Add("PhoneType");
             foreach (var entity in getUserPhone)
             {
-                d1.Rows.Add(entity.Id, entity.UserId, entity.PhoneNumber, entity.PhoneId);
+                var getUserId = from u in _wrt.Users where entity.UserId == u.Id select u;
+                string userName = getUserId.ToList()[0].Name.ToString();
+                var phoneTypeId = from pt in _wrt.PhoneTypes where pt.Id == entity.PhoneId select pt;
+                string phoneTypeName = phoneTypeId.ToList()[0].Name.ToString();
+                d1.Rows.Add(entity.Id, userName, entity.PhoneNumber, phoneTypeName);
             }
             dgwAddPart.DataSource = d1;
         }
@@ -106,12 +110,16 @@ namespace WeAreTogetherEfCodeFirst
             DataTable d2 = new DataTable();
             var s = from sou in _wrt.ShelterOfUsers select sou;
             d2.Columns.Add("Id");
-            d2.Columns.Add("UserId");
-            d2.Columns.Add("ShelterId");
+            d2.Columns.Add("User");
+            d2.Columns.Add("Shelter");
             d2.Columns.Add("Active");
             foreach (var entity in s)
             {
-                d2.Rows.Add(entity.Id, entity.UserId, entity.ShelterId, entity.Active);
+                var getUserId = from u in _wrt.Users where entity.UserId == u.Id select u;
+                string userName = getUserId.ToList()[0].Name.ToString();
+                var shelterId = from sh in _wrt.Shelters where sh.Id == entity.ShelterId select sh;
+                string shelterName = shelterId.ToList()[0].Name.ToString();
+                d2.Rows.Add(entity.Id, userName, shelterName, entity.Active);
             }
             dgwAddPart.DataSource = d2;
         }
@@ -121,11 +129,15 @@ namespace WeAreTogetherEfCodeFirst
             DataTable d3 = new DataTable();
             var rop = from r in _wrt.ResponsibleOfManagements select r;
             d3.Columns.Add("Id");
-            d3.Columns.Add("UserId");
-            d3.Columns.Add("ManagementId");
+            d3.Columns.Add("User");
+            d3.Columns.Add("Management");
             foreach (var entity in rop)
             {
-                d3.Rows.Add(entity.Id, entity.UserId, entity.ManagementId);
+                var getUserId = from u in _wrt.Users where entity.UserId == u.Id select u;
+                string userName = getUserId.ToList()[0].Name.ToString();
+                var managementId = from m in _wrt.Managements where m.Id == entity.ManagementId select m;
+                string managementName = managementId.ToList()[0].Name.ToString();
+                d3.Rows.Add(entity.Id, userName, managementName);
             }
             dgwAddPart.DataSource = d3;
         }
@@ -133,14 +145,18 @@ namespace WeAreTogetherEfCodeFirst
         private void GetManagementShelterTable()
         {
             DataTable d4 = new DataTable();
-            var a = from ms in _wrt.ManagementShelters select ms;
+            var getMs = from ms in _wrt.ManagementShelters select ms;
             d4.Columns.Add("Id");
-            d4.Columns.Add("ManagementId");
+            d4.Columns.Add("Management");
             d4.Columns.Add("ShelterId");
             d4.Columns.Add("Active");
-            foreach (var entity in a)
+            foreach (var entity in getMs)
             {
-                d4.Rows.Add(entity.Id, entity.ManagementId, entity.ShelterId, entity.Active);
+                var managementId = from m in _wrt.Managements where m.Id == entity.ManagementId select m;
+                string managementName = managementId.ToList()[0].Name.ToString();
+                //var shelterId = from sh in _wrt.Shelters where sh.Id == entity.ShelterId select sh;
+                //string shelterName = shelterId.ToList()[0].Name.ToString();
+                d4.Rows.Add(entity.Id, managementName, entity.ShelterId, entity.Active);
             }
             dgwAddPart.DataSource = d4;
         }
@@ -150,12 +166,16 @@ namespace WeAreTogetherEfCodeFirst
             DataTable d5 = new DataTable();
             var y = from mp in _wrt.ManagementPhones select mp;
             d5.Columns.Add("Id");
-            d5.Columns.Add("ManagementId");
-            d5.Columns.Add("PhoneTypeId");
+            d5.Columns.Add("Management");
+            d5.Columns.Add("PhoneType");
             d5.Columns.Add("PhoneNumber");
             foreach (var entity in y)
             {
-                d5.Rows.Add(entity.Id, entity.ManagementId, entity.PhoneTypeId, entity.PhoneNumber);
+                var managementId = from m in _wrt.Managements where m.Id == entity.ManagementId select m;
+                string managementName = managementId.ToList()[0].Name.ToString();
+                var phoneTypeId = from pt in _wrt.PhoneTypes where pt.Id == entity.PhoneTypeId select pt;
+                string phoneTypeName = phoneTypeId.ToList()[0].Name.ToString();
+                d5.Rows.Add(entity.Id, managementName, phoneTypeName, entity.PhoneNumber);
             }
             dgwAddPart.DataSource = d5;
         }
@@ -449,75 +469,75 @@ namespace WeAreTogetherEfCodeFirst
         //I got a problem here
         private void dgwAddPart_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                if (cbxList2.SelectedIndex == 0)
-                {
-                    var id = from up in _wrt.UserPhones where up.UserId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select up;
-                    cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                    cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
-                    tbxNameIki.Text = dgwAddPart.CurrentRow.Cells[2].Value.ToString();
-                    cbxPhoneTypeId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[3].Value);
-                    cbxPhoneTypeId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().PhoneId.ToString());
-                }
-                else if (cbxList2.SelectedIndex == 1)
-                {
-                    var id = from mp in _wrt.ManagementPhones where mp.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select mp;
-                    cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                    cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
-                    cbxPhoneTypeId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
-                    cbxPhoneTypeId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().PhoneTypeId.ToString());
-                    tbxNameIki.Text = dgwAddPart.CurrentRow.Cells[3].Value.ToString();
-                }
-                else if (cbxList2.SelectedIndex == 2)
-                {
-                    var id = from ms in _wrt.ManagementShelters where ms.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select ms;
-                    cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                    cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
-                    cbxShelterId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
-                    cbxShelterId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ShelterId.ToString());
-                    if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == true)
-                    {
-                        cbxTrue.Checked = true;
-                        cbxFalse.Checked = false;
-                    }
-                    else if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == false)
-                    {
-                        cbxFalse.Checked = true;
-                        cbxTrue.Checked = false;
-                    }
-                }
-                else if (cbxList2.SelectedIndex == 3)
-                {
-                    var id = from rom in _wrt.ResponsibleOfManagements where rom.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select rom;
-                    cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                    cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
-                    cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
-                    cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
-                }
-                else if (cbxList2.SelectedIndex == 4)
-                {
-                    var id = from sou in _wrt.ShelterOfUsers where sou.UserId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select sou;
-                    cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
-                    cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
-                    cbxShelterId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
-                    cbxShelterId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ShelterId.ToString());
-                    if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == true)
-                    {
-                        cbxTrue.Checked = true;
-                        cbxFalse.Checked = false;
-                    }
-                    else if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == false)
-                    {
-                        cbxFalse.Checked = true;
-                        cbxTrue.Checked = false;
-                    }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("We got a problem on the system.Try it another time.");
-            }
+            //try
+            //{
+            //    if (cbxList2.SelectedIndex == 0)
+            //    {
+            //        var id = from up in _wrt.UserPhones where up.UserId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select up;
+            //        cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+            //        cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
+            //        tbxNameIki.Text = dgwAddPart.CurrentRow.Cells[2].Value.ToString();
+            //        cbxPhoneTypeId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[3].Value);
+            //        cbxPhoneTypeId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().PhoneId.ToString());
+            //    }
+            //    else if (cbxList2.SelectedIndex == 1)
+            //    {
+            //        var id = from mp in _wrt.ManagementPhones where mp.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select mp;
+            //        cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+            //        cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
+            //        cbxPhoneTypeId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
+            //        cbxPhoneTypeId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().PhoneTypeId.ToString());
+            //        tbxNameIki.Text = dgwAddPart.CurrentRow.Cells[3].Value.ToString();
+            //    }
+            //    else if (cbxList2.SelectedIndex == 2)
+            //    {
+            //        var id = from ms in _wrt.ManagementShelters where ms.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select ms;
+            //        cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+            //        cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
+            //        cbxShelterId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
+            //        cbxShelterId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ShelterId.ToString());
+            //        if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == true)
+            //        {
+            //            cbxTrue.Checked = true;
+            //            cbxFalse.Checked = false;
+            //        }
+            //        else if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == false)
+            //        {
+            //            cbxFalse.Checked = true;
+            //            cbxTrue.Checked = false;
+            //        }
+            //    }
+            //    else if (cbxList2.SelectedIndex == 3)
+            //    {
+            //        var id = from rom in _wrt.ResponsibleOfManagements where rom.ManagementId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select rom;
+            //        cbxManagementId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+            //        cbxManagementId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ManagementId.ToString());
+            //        cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
+            //        cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
+            //    }
+            //    else if (cbxList2.SelectedIndex == 4)
+            //    {
+            //        var id = from sou in _wrt.ShelterOfUsers where sou.UserId == Convert.ToInt32(dgwAddPart.CurrentRow.Cells[1].Value) select sou;
+            //        cbxUserId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[1].Value);
+            //        cbxUserId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().UserId.ToString());
+            //        cbxShelterId.SelectedText = Convert.ToString(dgwAddPart.CurrentRow.Cells[2].Value);
+            //        cbxShelterId.SelectedValue = Convert.ToInt32(id.ToList().FirstOrDefault().ShelterId.ToString());
+            //        if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == true)
+            //        {
+            //            cbxTrue.Checked = true;
+            //            cbxFalse.Checked = false;
+            //        }
+            //        else if (Convert.ToBoolean(dgwAddPart.CurrentRow.Cells[3].Value) == false)
+            //        {
+            //            cbxFalse.Checked = true;
+            //            cbxTrue.Checked = false;
+            //        }
+            //    }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("We got a problem on the system.Try it another time.");
+            //}
             
         }
 

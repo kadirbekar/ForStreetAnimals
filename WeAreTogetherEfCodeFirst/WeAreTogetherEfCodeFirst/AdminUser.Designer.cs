@@ -336,7 +336,7 @@
             this.gbxAdminUser.Controls.Add(this.btnAddUser);
             this.gbxAdminUser.Controls.Add(this.btnUpdateUser);
             this.gbxAdminUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxAdminUser.Location = new System.Drawing.Point(811, 333);
+            this.gbxAdminUser.Location = new System.Drawing.Point(749, 362);
             this.gbxAdminUser.Name = "gbxAdminUser";
             this.gbxAdminUser.Size = new System.Drawing.Size(219, 223);
             this.gbxAdminUser.TabIndex = 49;
@@ -439,7 +439,7 @@
             // txtFindSomeone
             // 
             this.txtFindSomeone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtFindSomeone.Location = new System.Drawing.Point(826, 269);
+            this.txtFindSomeone.Location = new System.Drawing.Point(764, 269);
             this.txtFindSomeone.Name = "txtFindSomeone";
             this.txtFindSomeone.Size = new System.Drawing.Size(204, 26);
             this.txtFindSomeone.TabIndex = 73;
@@ -449,7 +449,7 @@
             // 
             this.lblFindSomeone.AutoSize = true;
             this.lblFindSomeone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblFindSomeone.Location = new System.Drawing.Point(681, 272);
+            this.lblFindSomeone.Location = new System.Drawing.Point(619, 272);
             this.lblFindSomeone.Name = "lblFindSomeone";
             this.lblFindSomeone.Size = new System.Drawing.Size(139, 20);
             this.lblFindSomeone.TabIndex = 74;
@@ -458,7 +458,7 @@
             // pbsUser
             // 
             this.pbsUser.Image = ((System.Drawing.Image)(resources.GetObject("pbsUser.Image")));
-            this.pbsUser.Location = new System.Drawing.Point(645, 266);
+            this.pbsUser.Location = new System.Drawing.Point(583, 266);
             this.pbsUser.Name = "pbsUser";
             this.pbsUser.Size = new System.Drawing.Size(30, 29);
             this.pbsUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

@@ -22,7 +22,7 @@ namespace WeAreTogetherEfCodeFirst
         private void AdminUser_Load(object sender, EventArgs e)
         {
             GetUsers();
-            GetCities();
+            GetCities(); 
         }
 
         //To clear our tools on the form

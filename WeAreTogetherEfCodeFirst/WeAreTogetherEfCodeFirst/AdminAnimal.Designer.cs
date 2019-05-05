@@ -393,7 +393,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(914, 661);
+            this.ClientSize = new System.Drawing.Size(914, 621);
             this.Controls.Add(this.pbxAnimal);
             this.Controls.Add(this.lblFindSomeone);
             this.Controls.Add(this.txtFindAnimal);
