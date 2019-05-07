@@ -115,6 +115,8 @@ namespace WeAreTogetherEfCodeFirst
             lblPassword.Visible = false;
             lblUsername.Text = Username + " signed";
             lblPassword.Text = Password;
+            tbxManagementName.Text = Username.ToString();
+            tbxManagementName.Enabled = false;
             GetManagementId();
             GetManagementFoodsTable();
             tbxManagementId.Enabled = false;

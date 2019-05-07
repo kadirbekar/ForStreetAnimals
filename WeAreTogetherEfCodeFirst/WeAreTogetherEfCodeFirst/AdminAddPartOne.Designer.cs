@@ -57,6 +57,7 @@
             this.adminOtherThingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminOtherThingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.adminAddPart1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.gbxCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwAddPart)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -66,50 +67,50 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(235, 376);
+            this.label4.Location = new System.Drawing.Point(43, 423);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 20);
+            this.label4.Size = new System.Drawing.Size(113, 20);
             this.label4.TabIndex = 88;
-            this.label4.Text = "ManagementId";
+            this.label4.Text = "Management";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(92, 376);
+            this.label3.Location = new System.Drawing.Point(43, 381);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 20);
+            this.label3.Size = new System.Drawing.Size(67, 20);
             this.label3.TabIndex = 87;
-            this.label3.Text = "ShelterId";
+            this.label3.Text = "Shelter";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(235, 338);
+            this.label2.Location = new System.Drawing.Point(43, 462);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 20);
+            this.label2.Size = new System.Drawing.Size(98, 20);
             this.label2.TabIndex = 86;
-            this.label2.Text = "PhoneTypeId";
+            this.label2.Text = "PhoneType";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(93, 338);
+            this.label1.Location = new System.Drawing.Point(43, 338);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 85;
-            this.label1.Text = "UserId";
+            this.label1.Text = "User";
             // 
             // cbxManagementId
             // 
             this.cbxManagementId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxManagementId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxManagementId.FormattingEnabled = true;
-            this.cbxManagementId.Location = new System.Drawing.Point(365, 370);
+            this.cbxManagementId.Location = new System.Drawing.Point(172, 420);
             this.cbxManagementId.Name = "cbxManagementId";
-            this.cbxManagementId.Size = new System.Drawing.Size(50, 28);
+            this.cbxManagementId.Size = new System.Drawing.Size(290, 28);
             this.cbxManagementId.TabIndex = 84;
             // 
             // cbxUserId
@@ -117,9 +118,9 @@
             this.cbxUserId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxUserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxUserId.FormattingEnabled = true;
-            this.cbxUserId.Location = new System.Drawing.Point(181, 335);
+            this.cbxUserId.Location = new System.Drawing.Point(173, 335);
             this.cbxUserId.Name = "cbxUserId";
-            this.cbxUserId.Size = new System.Drawing.Size(50, 28);
+            this.cbxUserId.Size = new System.Drawing.Size(289, 28);
             this.cbxUserId.TabIndex = 83;
             // 
             // cbxPhoneTypeId
@@ -127,9 +128,9 @@
             this.cbxPhoneTypeId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPhoneTypeId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxPhoneTypeId.FormattingEnabled = true;
-            this.cbxPhoneTypeId.Location = new System.Drawing.Point(365, 330);
+            this.cbxPhoneTypeId.Location = new System.Drawing.Point(172, 459);
             this.cbxPhoneTypeId.Name = "cbxPhoneTypeId";
-            this.cbxPhoneTypeId.Size = new System.Drawing.Size(50, 28);
+            this.cbxPhoneTypeId.Size = new System.Drawing.Size(290, 28);
             this.cbxPhoneTypeId.TabIndex = 82;
             // 
             // cbxShelterId
@@ -137,16 +138,16 @@
             this.cbxShelterId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxShelterId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cbxShelterId.FormattingEnabled = true;
-            this.cbxShelterId.Location = new System.Drawing.Point(181, 373);
+            this.cbxShelterId.Location = new System.Drawing.Point(173, 378);
             this.cbxShelterId.Name = "cbxShelterId";
-            this.cbxShelterId.Size = new System.Drawing.Size(50, 28);
+            this.cbxShelterId.Size = new System.Drawing.Size(289, 28);
             this.cbxShelterId.TabIndex = 81;
             // 
             // lblActive
             // 
             this.lblActive.AutoSize = true;
             this.lblActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblActive.Location = new System.Drawing.Point(29, 462);
+            this.lblActive.Location = new System.Drawing.Point(42, 550);
             this.lblActive.Name = "lblActive";
             this.lblActive.Size = new System.Drawing.Size(58, 20);
             this.lblActive.TabIndex = 80;
@@ -156,7 +157,7 @@
             // 
             this.lblAdd2.AutoSize = true;
             this.lblAdd2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblAdd2.Location = new System.Drawing.Point(30, 294);
+            this.lblAdd2.Location = new System.Drawing.Point(43, 294);
             this.lblAdd2.Name = "lblAdd2";
             this.lblAdd2.Size = new System.Drawing.Size(61, 20);
             this.lblAdd2.TabIndex = 79;
@@ -180,7 +181,7 @@
             // 
             this.cbxFalse.AutoSize = true;
             this.cbxFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbxFalse.Location = new System.Drawing.Point(173, 462);
+            this.cbxFalse.Location = new System.Drawing.Point(249, 550);
             this.cbxFalse.Name = "cbxFalse";
             this.cbxFalse.Size = new System.Drawing.Size(50, 24);
             this.cbxFalse.TabIndex = 76;
@@ -191,7 +192,7 @@
             // tbxNameIki
             // 
             this.tbxNameIki.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxNameIki.Location = new System.Drawing.Point(97, 420);
+            this.tbxNameIki.Location = new System.Drawing.Point(173, 512);
             this.tbxNameIki.Name = "tbxNameIki";
             this.tbxNameIki.Size = new System.Drawing.Size(213, 26);
             this.tbxNameIki.TabIndex = 77;
@@ -200,7 +201,7 @@
             // 
             this.cbxTrue.AutoSize = true;
             this.cbxTrue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cbxTrue.Location = new System.Drawing.Point(97, 462);
+            this.cbxTrue.Location = new System.Drawing.Point(173, 550);
             this.cbxTrue.Name = "cbxTrue";
             this.cbxTrue.Size = new System.Drawing.Size(59, 24);
             this.cbxTrue.TabIndex = 75;
@@ -221,9 +222,9 @@
             "Management Shelter",
             "Responsible Of Manag.",
             "Shelter Of User"});
-            this.cbxList2.Location = new System.Drawing.Point(97, 291);
+            this.cbxList2.Location = new System.Drawing.Point(173, 291);
             this.cbxList2.Name = "cbxList2";
-            this.cbxList2.Size = new System.Drawing.Size(318, 28);
+            this.cbxList2.Size = new System.Drawing.Size(289, 28);
             this.cbxList2.TabIndex = 74;
             this.cbxList2.SelectedIndexChanged += new System.EventHandler(this.cbxList2_SelectedIndexChanged);
             // 
@@ -233,7 +234,7 @@
             this.gbxCrud.Controls.Add(this.btUpdate2);
             this.gbxCrud.Controls.Add(this.btnAddPart2);
             this.gbxCrud.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.gbxCrud.Location = new System.Drawing.Point(565, 246);
+            this.gbxCrud.Location = new System.Drawing.Point(591, 246);
             this.gbxCrud.Name = "gbxCrud";
             this.gbxCrud.Size = new System.Drawing.Size(219, 262);
             this.gbxCrud.TabIndex = 89;
@@ -283,7 +284,7 @@
             this.lblWarning.AutoSize = true;
             this.lblWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(29, 246);
+            this.lblWarning.Location = new System.Drawing.Point(43, 246);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(313, 20);
             this.lblWarning.TabIndex = 92;
@@ -357,12 +358,23 @@
             this.adminAddPart1ToolStripMenuItem.Text = "Admin Add Part 1";
             this.adminAddPart1ToolStripMenuItem.Click += new System.EventHandler(this.adminAddPart1ToolStripMenuItem_Click);
             // 
+            // lblPhoneNumber
+            // 
+            this.lblPhoneNumber.AutoSize = true;
+            this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPhoneNumber.Location = new System.Drawing.Point(43, 515);
+            this.lblPhoneNumber.Name = "lblPhoneNumber";
+            this.lblPhoneNumber.Size = new System.Drawing.Size(127, 20);
+            this.lblPhoneNumber.TabIndex = 94;
+            this.lblPhoneNumber.Text = "Phone Number";
+            // 
             // AdminAddPartOne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(884, 631);
+            this.Controls.Add(this.lblPhoneNumber);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxList2);
             this.Controls.Add(this.toolStrip1);
@@ -425,5 +437,6 @@
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminOtherThingsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem adminAddPart1ToolStripMenuItem;
+        private System.Windows.Forms.Label lblPhoneNumber;
     }
 }

@@ -28,6 +28,8 @@ namespace WeAreTogetherEfCodeFirst
         {
             tbxUserId.Enabled = false;
             lblUsername.Text = Username + " signed";
+            tbxVolunteerName.Text = Username.ToString();
+            tbxVolunteerName.Enabled = false;
             GetVolunteerId();
             GetManagementFoodsTable();
         }
@@ -39,22 +41,23 @@ namespace WeAreTogetherEfCodeFirst
             tbxUserId.Text = id.ToString();
         }
 
+
         private void GetManagementFoodsTable()
         {
             var getFoodEntiries = from mf in _wrt.ManagementFoods select mf;
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Id");
-            dt.Columns.Add("ManagementId");
-            dt.Columns.Add("DateOfFood");
-            dt.Columns.Add("DeliveryTime");
-            dt.Columns.Add("SupplyDelivery");
-            dt.Columns.Add("ResponsibleUser");
+            DataTable d1 = new DataTable();
+            d1.Columns.Add("Id");
+            d1.Columns.Add("ManagementId");
+            d1.Columns.Add("DateOfFood");
+            d1.Columns.Add("DeliveryTime");
+            d1.Columns.Add("SupplyDelivery");
+            d1.Columns.Add("ResponsibleUser");
 
             foreach (var q in getFoodEntiries)
             {
-                dt.Rows.Add(q.Id, q.ManagementId, q.DateOfFood, q.DeliveryTime, q.SupplyDelivery, q.ResponsibleUser);
+                d1.Rows.Add(q.Id, q.ManagementId, q.DateOfFood, q.DeliveryTime, q.SupplyDelivery, q.ResponsibleUser);
             }
-            dgwVoluteerWorker.DataSource = dt;
+            dgwVoluteerWorker.DataSource = d1;
         }
 
         private void GetAnimalAndShelters()
@@ -71,51 +74,58 @@ namespace WeAreTogetherEfCodeFirst
                                           shelterName = s.Name,
                                           sId = s.Id
                                       };
-            DataTable dt = new DataTable();
-            dt.Columns.Add("animalName");
-            dt.Columns.Add("shelterId");
-            dt.Columns.Add("kindOfAnimal");
-            dt.Columns.Add("pet");
-            dt.Columns.Add("shelterName");
-            dt.Columns.Add("sId");
+            DataTable d2 = new DataTable();
+            d2.Columns.Add("animalName");
+            d2.Columns.Add("shelterId");
+            d2.Columns.Add("kindOfAnimal");
+            d2.Columns.Add("pet");
+            d2.Columns.Add("shelterName");
+            d2.Columns.Add("sId");
 
             foreach (var q in getAnimalAndShelter)
             {
-                dt.Rows.Add(q.animalName, q.shelterId, q.kindOfAnimal, q.pet, q.shelterName, q.sId);
+                d2.Rows.Add(q.animalName, q.shelterId, q.kindOfAnimal, q.pet, q.shelterName, q.shelterId);
             }
-            dgwVoluteerWorker.DataSource = dt;
+            dgwVoluteerWorker.DataSource = d2;
         }
+
+        private void GetManagementAndUser()
+        {
+            var getManagement = from m in _wrt.Managements select m;
+            var getUser = from u in _wrt.Users select u;
+            var getManagementFood = from mf in _wrt.ManagementFoods select mf;
+            var seeEveryone = from mf in getManagementFood
+                              join m in getManagement on
+                              mf.ManagementId equals m.Id
+                              join u in getUser on mf.ResponsibleUser equals u.Id
+                              select new
+                              {
+                                  managmntName = m.Name,
+                                  managmntId = m.Id,
+                                  userName = u.Name,
+                                  userId = u.Id
+                              };
+
+            DataTable d3 = new DataTable();
+            d3.Columns.Add("managmntName");
+            d3.Columns.Add("managmntId");
+            d3.Columns.Add("userName");
+            d3.Columns.Add("userId");
+
+            foreach (var q in seeEveryone)
+            {
+                d3.Rows.Add(q.managmntName, q.managmntId, q.userName, q.userId);
+            }
+            dgwVoluteerWorker.DataSource = d3;
+        }
+
+
 
         private void cbxPickWorkType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxPickWorkType.SelectedIndex == 0)
             {
-                var getManagement = from m in _wrt.Managements select m;
-                var getUser = from u in _wrt.Users select u;
-                var getManagementFood = from mf in _wrt.ManagementFoods select mf;
-                var seeEveryone = from mf in getManagementFood
-                                  join m in getManagement on
-                                  mf.ManagementId equals m.Id
-                                  join u in getUser on mf.ResponsibleUser equals u.Id
-                                  select new
-                                  {
-                                      managmntName = m.Name,
-                                      managmntId = m.Id,
-                                      userName = u.Name,
-                                      userId = u.Id
-                                  };
-
-                DataTable dt = new DataTable();
-                dt.Columns.Add("managmntName");
-                dt.Columns.Add("managmntId");
-                dt.Columns.Add("userName");
-                dt.Columns.Add("userId");
-
-                foreach (var q in seeEveryone)
-                {
-                    dt.Rows.Add(q.managmntName, q.managmntId, q.userName, q.userId);
-                }
-                dgwVoluteerWorker.DataSource = dt;
+                GetManagementAndUser();
             }
             else if (cbxPickWorkType.SelectedIndex == 1)
             {
@@ -126,6 +136,7 @@ namespace WeAreTogetherEfCodeFirst
                 GetAnimalAndShelters();
             }
         }
+
 
         private void cbxTrue_CheckedChanged(object sender, EventArgs e)
         {
@@ -149,7 +160,7 @@ namespace WeAreTogetherEfCodeFirst
         {
 
         }
-
+        //To update the register which belong to user
         private void btnTakeMission_Click(object sender, EventArgs e)
         {
             try
@@ -181,6 +192,7 @@ namespace WeAreTogetherEfCodeFirst
                 cbxFalse.Checked = false;
                 cbxTrue.Checked = false;
                 MessageBox.Show("Register delivered successfully");
+
             }
             catch
             {

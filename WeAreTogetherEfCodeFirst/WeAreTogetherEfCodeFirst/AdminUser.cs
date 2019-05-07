@@ -106,7 +106,6 @@ namespace WeAreTogetherEfCodeFirst
             User user = new User();
             try
             {
-
                 user.CityId = Convert.ToInt32(cbxCity.SelectedValue);
                 user.DistrictId = Convert.ToInt32(cbxDistrict.SelectedValue);
                 user.Name = txtName.Text;

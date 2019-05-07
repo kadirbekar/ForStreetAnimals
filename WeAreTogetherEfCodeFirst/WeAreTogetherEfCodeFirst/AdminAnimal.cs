@@ -51,6 +51,7 @@ namespace WeAreTogetherEfCodeFirst
         {
             var getShelterId = from s in _wrt.Shelters select s;
             cbxShelterId.ValueMember = "Id";
+            cbxShelterId.DisplayMember = "Name";
             cbxShelterId.DataSource = getShelterId.ToList();
         }
 

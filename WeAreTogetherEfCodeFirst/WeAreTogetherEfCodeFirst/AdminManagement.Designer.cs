@@ -88,7 +88,7 @@
             this.lblWarning.AutoSize = true;
             this.lblWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(29, 274);
+            this.lblWarning.Location = new System.Drawing.Point(36, 280);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(308, 20);
             this.lblWarning.TabIndex = 1;
@@ -365,7 +365,7 @@
             // pbxManagement
             // 
             this.pbxManagement.Image = ((System.Drawing.Image)(resources.GetObject("pbxManagement.Image")));
-            this.pbxManagement.Location = new System.Drawing.Point(385, 273);
+            this.pbxManagement.Location = new System.Drawing.Point(400, 277);
             this.pbxManagement.Name = "pbxManagement";
             this.pbxManagement.Size = new System.Drawing.Size(30, 29);
             this.pbxManagement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -376,7 +376,7 @@
             // 
             this.lblFindSomeone.AutoSize = true;
             this.lblFindSomeone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblFindSomeone.Location = new System.Drawing.Point(421, 279);
+            this.lblFindSomeone.Location = new System.Drawing.Point(451, 283);
             this.lblFindSomeone.Name = "lblFindSomeone";
             this.lblFindSomeone.Size = new System.Drawing.Size(208, 20);
             this.lblFindSomeone.TabIndex = 80;
@@ -385,7 +385,7 @@
             // txtFindManagement
             // 
             this.txtFindManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtFindManagement.Location = new System.Drawing.Point(635, 276);
+            this.txtFindManagement.Location = new System.Drawing.Point(665, 280);
             this.txtFindManagement.Name = "txtFindManagement";
             this.txtFindManagement.Size = new System.Drawing.Size(204, 26);
             this.txtFindManagement.TabIndex = 79;

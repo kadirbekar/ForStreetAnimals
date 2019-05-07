@@ -26,10 +26,10 @@ namespace WeAreTogetherEfCodeFirst
 
         private void AdminAddPartOne_Load(object sender, EventArgs e)
         {
-            GetManagementId();
-            GetUserId();
-            GetShelterId();
-            GetPhoneTypeId();
+            GetManagementName();
+            GetUserName();
+            GetShelterName();
+            GetPhoneTypeName();
         }
 
         private void cbxList2_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,32 +57,36 @@ namespace WeAreTogetherEfCodeFirst
         }
 
         //We've created o new method to get Management's id numbers
-        private void GetManagementId()
+        private void GetManagementName()
         {
-            var id = from m in _wrt.Managements select m;
-            cbxManagementId.DataSource = id.ToList();
+            var name = from m in _wrt.Managements select m;
+            cbxManagementId.DataSource = name.ToList();
             cbxManagementId.ValueMember = "Id";
+            cbxManagementId.DisplayMember = "Name";
         }
 
-        private void GetUserId()
+        private void GetUserName()
         {
-            var id = from u in _wrt.Users select u;
-            cbxUserId.DataSource = id.ToList();
+            var name = from u in _wrt.Users select u;
+            cbxUserId.DataSource = name.ToList();
             cbxUserId.ValueMember = "Id";
+            cbxUserId.DisplayMember = "Name";
         }
 
-        private void GetShelterId()
+        private void GetShelterName()
         {
-            var id = from s in _wrt.Shelters select s;
-            cbxShelterId.DataSource = id.ToList();
+            var name = from s in _wrt.Shelters select s;
+            cbxShelterId.DataSource = name.ToList();
             cbxShelterId.ValueMember = "Id";
+            cbxShelterId.DisplayMember = "Name";
         }
 
-        private void GetPhoneTypeId()
+        private void GetPhoneTypeName()
         {
-            var id = from r in _wrt.PhoneTypes select r;
-            cbxPhoneTypeId.DataSource = id.ToList();
+            var name = from r in _wrt.PhoneTypes select r;
+            cbxPhoneTypeId.DataSource = name.ToList();
             cbxPhoneTypeId.ValueMember = "Id";
+            cbxPhoneTypeId.DisplayMember = "Name";
         }
 
         //Getting userphone table with that method
