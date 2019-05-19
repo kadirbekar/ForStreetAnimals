@@ -171,7 +171,7 @@ namespace WeAreTogetherEfCodeFirst
             {
                 MessageBox.Show("We got a problem on the system.Try it another time.");
             }
-        }
+}
 
         //Updating a management with their id number
         private void btnUpdateManagement_Click(object sender, EventArgs e)
